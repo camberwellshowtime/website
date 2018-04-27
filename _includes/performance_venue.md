@@ -1,5 +1,5 @@
 ---
-Title: Performance venue
+title: Performance venue
 ---
 
 #### Venue

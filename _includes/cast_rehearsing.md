@@ -1,5 +1,5 @@
 ---
-Title: Rehearsing
+title: Rehearsing
 ---
 
 #### Rehearsing

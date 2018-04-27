@@ -8,6 +8,27 @@ media_folder: uploads # Folder where user uploaded files should go
 publish_mode: editorial_workflow
 
 collections: # A list of collections the CMS should be able to edit
+  - name: "snippets" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Snippet" # Used in the UI, ie.: "New Post"
+    folder: "_includes"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: # The fields each document in this collection have
+      - {label: "Title", name: "title", widget: "string", tagname: "h1"}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "page"
+    label: "Page"
+    files:
+      - name: "homepage"
+        label: "Homepage"
+        file: "index.html"
+  - name: "layout"
+    label: "Layout"
+    files:
+      - name: "layout"
+        label: "Layout"
+        file: "_layouts/default.html"
   - name: "data"
     label: "Data"
     editor:
@@ -17,11 +38,19 @@ collections: # A list of collections the CMS should be able to edit
         label: "Performances"
         file: "_data/performances.yml"
         fields:
-          - {label: "Date", name: "date", widget: "date"}
-          - {label: "Description", name: "description", widget: "text"}
+          - label: "Performances"
+            name: "performances"
+            widget: "list"
+            fields:
+              - {label: "Date", name: "date", widget: "date"}
+              - {label: "Description", name: "description", widget: "text"}
       - name: "cast"
         label: "Cast"
         file: "_data/cast.yml"
         fields:
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "Date", name: "date", widget: "text"}
+          - label: "Cast"
+            name: "cast"
+            widget: "list"
+            fields:
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Date", name: "date", widget: "text"}

@@ -14,12 +14,10 @@ layout: default
     </h2>
   </div>
   <div>
-    {% capture performance_dates %}{% include performance_dates.html %}{% endcapture %}
-    {{ performance_dates }}
+    {% include_markdown performance_dates.html %}
   </div>
   <div>
-    {% capture performance_venue %}{% include performance_venue.md %}{% endcapture %}
-    {{ performance_venue | markdownify }}
+    {% include_markdown performance_venue.md %}
   </div>
 </section>
 
@@ -30,12 +28,10 @@ layout: default
     </h2>
   </div>
   <div>
-    {% capture cast_dates %}{% include cast_dates.html %}{% endcapture %}
-    {{ cast_dates }}
+    {% include_markdown cast_dates.html %}
   </div>
   <div>
-    {% capture cast_rehearsing %}{% include cast_rehearsing.md %}{% endcapture %}
-    {{ cast_rehearsing | markdownify }}
+    {% include_markdown cast_rehearsing.md %}
   </div>
 </section>
 
@@ -46,7 +42,6 @@ layout: default
     </h2>
   </div>
   <article>
-    {% capture about %}{% include about.md %}{% endcapture %}
-    {{ about | markdownify }}
+    {% include_markdown about.md %}
   </article>
 </section>

@@ -1,3 +1,7 @@
+---
+Title: Rehearsing
+---
+
 #### Rehearsing
 
 Camberwell Showtime rehearsals aren't your typical musical rehearsal.

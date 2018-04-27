@@ -7,7 +7,7 @@ Title: Performance dates
   <i class='material-icons' style='font-size: 1.2em; cursor: pointer' title='The show runs for somewhere in the realm of 2 and a half hours, including interval.'>info_outline</i>
 </div>
 <table>
-  {% for performance in site.data.performances %}
+  {% for performance in site.data.performances.performances %}
   <tr>
     <td style='padding-right: 3vw'>
       {{ performance.date | date: "%a %-d %B" }}

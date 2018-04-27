@@ -1,30 +1,31 @@
-- date: 28/29 April
-  description: Auditions*
-- date: 12 May
-  description: Script collection
-- date: 20 May
-  description: Rehearsal 1
-- date: 27 May
-  description: Rehearsal 2
-- date: 3 June
-  description: Rehearsal 3
-- date: 16-17 June
-  description: Rehearsal 4
-- date: 23 June
-  description: Fundraiser
-- date: 24 June
-  description: Rehearsal 5
-- date: 1 July
-  description: Rehearsal 6
-- date: 15 July
-  description: Rehearsal 7
-- date: 21-22 July
-  description: Rehearsal 8
-- date: 29 July
-  description: Dress rehearsal 1
-- date: 31 July
-  description: Dress rehearsal 2
-- date: 1 August
-  description: Dress rehearsal 3
-- date: 2 August
-  description: Dress rehearsal 4
+cast:
+  - date: 28/29 April
+    description: Auditions*
+  - date: 12 May
+    description: Script collection
+  - date: 20 May
+    description: Rehearsal 1
+  - date: 27 May
+    description: Rehearsal 2
+  - date: 3 June
+    description: Rehearsal 3
+  - date: 16-17 June
+    description: Rehearsal 4
+  - date: 23 June
+    description: Fundraiser
+  - date: 24 June
+    description: Rehearsal 5
+  - date: 1 July
+    description: Rehearsal 6
+  - date: 15 July
+    description: Rehearsal 7
+  - date: 21-22 July
+    description: Rehearsal 8
+  - date: 29 July
+    description: Dress rehearsal 1
+  - date: 31 July
+    description: Dress rehearsal 2
+  - date: 1 August
+    description: Dress rehearsal 3
+  - date: 2 August
+    description: Dress rehearsal 4

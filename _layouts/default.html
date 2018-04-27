@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snowed Inn - Camberwell Showtime 2018</title>
+  <meta charset='UTF-8'/>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <meta name='description' content='The 54th Camberwell Showtime is Snowed Inn. Snowed Inn: presented by the great Scout and Guide show that keeps getting better and better after 50 years!'/>
+  <link rel='shortcut icon' href='{{site.baseurl}}/img/favicon.ico' type='image/x-icon' />
+  <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Material+Icons'>
+  <link href='{{site.baseurl}}/css/site.css' rel='stylesheet' />
+</head>
+<body>
+  <main class='default-container'>
+    {{content}}
+  </main>
+  <footer class='default-footer'>
+    <nav class='container'>
+      <div class='links'>
+        <a href='#top'>Top</a>
+        <a href='#performance'>Performance details</a>
+        <a href='#cast'>Cast details</a>
+        <a href='#about'>About</a>
+        <a href='//private.camberwellshowtime.com/'>Private area</a>
+        <a href='https://www.facebook.com/CamberwellShowtime/'>Facebook</a>
+      </div>
+      <div class='contact'>
+        Contact:
+        <a href='mailto:director@camberwellshowtime.com'>Director</a>
+        <a href='mailto:producer@camberwellshowtime.com'>Producer</a>
+        <a href='mailto:marketing@camberwellshowtime.com'>Marketing</a>
+        <a href='mailto:tickets@camberwellshowtime.com'>Tickets</a>
+      </div>
+    </nav>
+  </footer>
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/drop/1.4.2/css/drop-theme-arrows-bounce-dark.min.css'>
+  <script src='//cdn.jsdelivr.net/npm/smooth-scroll@12.1.5/dist/js/smooth-scroll.min.js'></script>
+  <script>
+  new SmoothScroll('a[href^="#"]', { easing: 'easeOutQuad' })
+  </script>
+  <script src='//cdn.jsdelivr.net/g/tether@1.3.7,drop@1.4.2'></script>
+  <script>
+    document.querySelectorAll('[title]:not([title=""])').forEach( (e) => {
+      new Drop({
+        target: e,
+        content: e.title,
+        classes: 'drop-theme-arrows-bounce-dark',
+        openOn: 'ontouchstart' in document.documentElement ? 'click' : 'hover',
+        position: 'top center',
+        constrainToScrollParent: false,
+      })
+      e.title = ''
+    })
+  </script>
+</body>

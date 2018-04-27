@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<small class='main-preface'>The 54th Camberwell Showtime presents:</small>
+<h1 class='main-title'>
+  Snowed<span style='font-size: 60%'> </span>Inn
+</h1>
+
+<section id='performance' class='performance-row'>
+  <div class='section-title'>
+    <h2>
+      Performance
+    </h2>
+  </div>
+  <div>
+    {% capture performance_dates %}{% include performance_dates.html %}{% endcapture %}
+    {{ performance_dates }}
+  </div>
+  <div>
+    {% capture performance_venue %}{% include performance_venue.md %}{% endcapture %}
+    {{ performance_venue | markdownify }}
+  </div>
+</section>
+
+<section id='cast' class='cast-row'>
+  <div class='section-title'>
+    <h2>
+      Cast
+    </h2>
+  </div>
+  <div>
+    {% capture cast_dates %}{% include cast_dates.html %}{% endcapture %}
+    {{ cast_dates }}
+  </div>
+  <div>
+    {% capture cast_rehearsing %}{% include cast_rehearsing.md %}{% endcapture %}
+    {{ cast_rehearsing | markdownify }}
+  </div>
+</section>
+
+<section id='about' class='about-row'>
+  <div class='section-title'>
+    <h2>
+      About
+    </h2>
+  </div>
+  <article>
+    {% capture about %}{% include about.md %}{% endcapture %}
+    {{ about | markdownify }}
+  </article>
+</section>

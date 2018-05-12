@@ -57,5 +57,12 @@
       })
       e.title = ''
     })
+    document.body.onclick = function(e) {
+      if(window.location.hash !== '#menu') return
+      if(e.target.id === 'menu' || e.target.parentElement.id === 'menu') return
+      var top = (window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0)
+      window.location.hash = ''
+      window.pageYOffset = document.documentElement.scrollTop = top
+    }
   </script>
 </body>

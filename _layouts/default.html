@@ -12,20 +12,25 @@
   <link href='{{site.baseurl}}/css/site.css' rel='stylesheet' />
 </head>
 <body>
+  <header class='only-mobile'>
+    <a class='material-icons menu-button' href='#menu'>menu</a>
+  </header>
   <main class='default-container'>
     {{content}}
   </main>
   <footer class='default-footer'>
     <nav class='container'>
-      <div class='links'>
+      <div class='links' id='menu'>
         <a href='#top'>Top</a>
-        <a href='#performance'>Performance details</a>
-        <a href='#cast'>Cast details</a>
         <a href='#about'>About</a>
-        <a href='//private.camberwellshowtime.com/'>Private area</a>
+        <a href='#contact' class='only-mobile'>Contact</a>
+        <a href='#cast'>Cast details</a>
         <a href='https://www.facebook.com/CamberwellShowtime/'>Facebook</a>
+        <a href='#performance'>Performance details</a>
+        <a href='//private.camberwellshowtime.com/'>Private area</a>
+        <a href='#' class='only-mobile'>Close menu</a>
       </div>
-      <div class='contact'>
+      <div class='contact' id='contact'>
         Contact:
         <a href='mailto:director@camberwellshowtime.com'>Director</a>
         <a href='mailto:producer@camberwellshowtime.com'>Producer</a>
@@ -37,7 +42,7 @@
   <link rel='stylesheet' href='//cdn.jsdelivr.net/drop/1.4.2/css/drop-theme-arrows-bounce-dark.min.css'>
   <script src='//cdn.jsdelivr.net/npm/smooth-scroll@12.1.5/dist/js/smooth-scroll.min.js'></script>
   <script>
-  new SmoothScroll('a[href^="#"]', { easing: 'easeOutQuad' })
+  new SmoothScroll('a[href^="#"]:not([href="#"]):not([href="#menu"])', { easing: 'easeOutQuad' })
   </script>
   <script src='//cdn.jsdelivr.net/g/tether@1.3.7,drop@1.4.2'></script>
   <script>

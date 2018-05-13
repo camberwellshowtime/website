@@ -4,6 +4,9 @@ url: ""
 markdown: kramdown
 sass:
   sass_dir: _sass
+  style: compressed
 
 jekyll-minifier:
   preserve_line_breaks: true
+  compress_css: false
+  exclude: '*.css'

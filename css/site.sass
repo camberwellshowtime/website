@@ -131,14 +131,14 @@ $about-color: #963484
   background: $about-color
   padding-bottom: 0
   article
-    -webkit-columns: 20em
-    -moz-columns: 20em
-    columns: 20em
+    -moz-column-count: 3
+    column-width: 20em
     column-gap: 3em
     break-before: column
     p
       display: inline-block
       text-align: left
+      max-width: 30em
 
 .default-footer
   position: fixed

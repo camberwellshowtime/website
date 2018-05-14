@@ -34,21 +34,21 @@ collections: # A list of collections the CMS should be able to edit
     editor:
       preview: false
     files:
-      - name: "performances"
+      - name: "performance"
         label: "Performances"
         file: "_data/performances.yml"
         fields:
           - label: "Performances"
-            name: "performances"
+            name: "performance"
             widget: "list"
             fields:
-              - {label: "Date", name: "date", widget: "date"}
+              - {label: "Date", name: "date", widget: "datetime"}
               - {label: "Description", name: "description", widget: "text"}
       - name: "cast"
-        label: "Cast"
+        label: "Cast dates"
         file: "_data/cast.yml"
         fields:
-          - label: "Cast"
+          - label: "Cast date"
             name: "cast"
             widget: "list"
             fields:

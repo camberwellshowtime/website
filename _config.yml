@@ -10,3 +10,5 @@ jekyll-minifier:
   preserve_line_breaks: true
   compress_css: false
   exclude: '*.css'
+
+timezone: Australia/Melbourne

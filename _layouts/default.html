@@ -51,7 +51,9 @@
     if(window.location.hash && !!~window.location.hash.indexOf('=')) {
       window.location.pathname = '/admin'
     }
-    document.querySelectorAll('[title]:not([title=""])').forEach( function(e) {
+    var elems = document.querySelectorAll('[title]:not([title=""])')
+    for(var idx = 0; idx < elems.length; idx++) {
+      var e = elems[idx]
       new Drop({
         target: e,
         content: e.title,
@@ -61,7 +63,7 @@
         constrainToScrollParent: false,
       })
       e.title = ''
-    })
+    }
     document.body.onclick = function(e) {
       if(window.location.hash !== '#menu') return
       if(e.target.id === 'menu' || e.target.parentElement.id === 'menu') return

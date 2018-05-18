@@ -207,6 +207,26 @@ button.material-icons
   cursor: pointer
   color: white
 
+.button
+  border: 3px solid darken(#6bccf5, 40%)
+  background: darken(#6bccf5, 20%)
+  border-radius: 5px
+  padding: 0.5em 2em
+  margin-bottom: 1em
+
+.main-tickets
+  font-size: 1.2em
+  margin-left: 1em
+  position: relative
+  @media(max-width: 850px)
+    text-align: center
+    top: -1em
+    width: calc(100vw - 7em)
+    display: block
+  @media(min-width: 850px)
+    font-size: 1.4em
+    top: -16rem
+
 .only-desktop
   @media(max-width: 1000px)
     display: none

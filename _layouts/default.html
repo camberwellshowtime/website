@@ -28,17 +28,27 @@
         <a href='#cast'>Cast details</a>
         <a href='https://www.facebook.com/CamberwellShowtime/'>Facebook</a>
         <a href='#performance'>Performance details</a>
-        <a class='only-mobile' href='//private.camberwellshowtime.com/'>Member's area</a>
+        {% if site.data.general.members_area_url %}
+        <a class='only-mobile' href='{{ site.data.general.members_area_url }}'>Member's area</a>
+        {% endif %}
+        {% if site.data.general.tickets_url %}
+        <a href='{{ site.data.general.tickets_url }}'>Tickets</a>
+        {% endif %}
         <a href='#' class='only-mobile'>Close menu</a>
       </div>
       <div class='contact' id='contact'>
         Contact:
-        <a href='mailto:director@camberwellshowtime.com'>Director</a>
-        <a href='mailto:producer@camberwellshowtime.com'>Producer</a>
-        <a href='mailto:marketing@camberwellshowtime.com'>Marketing</a>
-        <a href='mailto:tickets@camberwellshowtime.com'>Tickets</a>
+        {% for contact in site.data.contacts.contacts %}
+        {% if contact.href %}
+        <a href='{{ contact.href }}'>{{ contact.label }}</a>
+        {% else %}
+        <a href='mailto:{{ contact.email }}'>{{ contact.label }}</a>
+        {% endif %}
+        {% endfor %}
       </div>
-      <a class='only-desktop' href='//private.camberwellshowtime.com/'>Member's area</a>
+      {% if site.data.general.members_area_url %}
+      <a class='only-desktop' href='{{ site.data.general.members_area_url }}'>Member's area</a>
+      {% endif %}
     </nav>
   </footer>
   <link rel='stylesheet' href='//cdn.jsdelivr.net/drop/1.4.2/css/drop-theme-arrows-bounce-dark.min.css'>

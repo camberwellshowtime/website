@@ -32,6 +32,24 @@ collections: # A list of collections the CMS should be able to edit
     editor:
       preview: false
     files:
+      - name: "general" # Used in routes, ie.: /admin/collections/:slug/edit
+        label: "General" # Used in the UI, ie.: "New Post"
+        file: "_data/general.yml"
+        create: false
+        fields: # The fields each document in this collection have
+          - {label: "Tickets URL", name: "tickets_url", widget: "string", required: false}
+          - {label: "Member's area URL", name: "members_area_url", widget: "string", required: false}
+      - name: "contacts"
+        label: "Contacts"
+        file: "_data/contacts.yml"
+        fields:
+          - label: "Contact"
+            name: "contacts"
+            widget: "list"
+            fields:
+              - {label: "Label", name: "label", widget: "text"}
+              - {label: "Email", name: "email", widget: "text", required: false}
+              - {label: "Href", name: "href", widget: "text", required: false}
       - name: "performances"
         label: "Performances"
         file: "_data/performances.yml"

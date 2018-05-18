@@ -7,6 +7,10 @@ layout: default
   Snowed<span style='font-size: 60%'> </span>Inn
 </h1>
 
+{% if site.data.general.tickets_url %}
+<a class='button main-tickets' href='{{ site.data.general.tickets_url }}'><span class='only-desktop'>Buy </span>Tickets</a>
+{% endif %}
+
 <section id='performance' class='performance-row'>
   <div class='section-title'>
     <h2>

@@ -75,11 +75,14 @@
         target: e,
         content: e.title,
         classes: 'drop-theme-arrows-bounce-dark',
-        openOn: 'ontouchstart' in document.documentElement ? 'click' : 'hover',
+        openOn: 'click hover',
         position: 'top center',
         constrainToScrollParent: false,
       })
       e.title = ''
+      e.onclick = function(e) {
+        e.preventDefault()
+      }
     }
     document.body.onclick = function(e) {
       if(window.location.hash !== '#menu') return

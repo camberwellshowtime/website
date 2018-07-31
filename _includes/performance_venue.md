@@ -11,4 +11,6 @@ Hawthorn Arts Centre<br/>
 
 Please send any enquiries regarding tickets to our [marketing](mailto:marketing@camberwellshowtime.com) team.
 
-[Maps and public transport](https://www.boroondara.vic.gov.au/visit-us#block-boroo-arts-theme-content)
+[Maps and public transport]({{ site.data.general.getting_here_url }})
+
+_Arrive 20 minutes early to ensure you get a carpark._

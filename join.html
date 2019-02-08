@@ -26,12 +26,12 @@ layout: default
         <label for="last-name">Last Name *</label>
         <input name="last-name" id="last-name" type="text" placeholder="Kidd" required>
       </div>
-      <div class="pure-control-group" class='radio-flex'>
+      <div class="pure-control-group radio-flex">
         <label>Gender *</label>
         <div>
-          <label style='margin-left: 0.5em; text-align: left'><input style='margin-right: 0.2em' type=radio name=gender value=Female>Female</label></br>
-          <label style='margin-left: 0.5em; text-align: left'><input style='margin-right: 0.2em' type=radio name=gender value=Male>Male</label></br>
-          <label style='margin-left: 0.5em; text-align: left'><input style='margin-right: 0.2em' type=radio name=gender value=Other>Other: </label></br>
+          <label style='margin-left: 0.5em; text-align: left'><input style='margin-right: 0.2em' type=radio name=gender value=Female>Female</label><br class='form-desktop-only'>
+          <label style='margin-left: 0.5em; text-align: left'><input style='margin-right: 0.2em' type=radio name=gender value=Male>Male</label><br class='form-desktop-only'>
+          <label style='margin-left: 0.5em; text-align: left'><input style='margin-right: 0.2em' type=radio name=gender value=Other>Other: </label><br class='form-desktop-only'>
           <input style='margin-left: 0.5em; text-align: left' type=text name=gender-other disabled>
         </div>
         <script>
@@ -167,7 +167,7 @@ layout: default
         <label for="occupation">Occupation</label>
         <input id="occupation" name="occupation" type="text" placeholder="Wizard">
       </div>
-      <div class="pure-control-group" class='radio-flex'>
+      <div class="pure-control-group radio-flex">
         <label>Do you play a musical instrument?</label>
         <div style='margin-left: 0.5em'>
           {% for instrument in site.data.instruments %}

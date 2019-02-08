@@ -12,11 +12,16 @@ $custom-break: max-width 440px
 @media(max-width: 850px)
   .form-desktop-only
     display: none
-@media(min-width: 850px)
+br.form-desktop-only
+  display: initial
+@media(max-width: 480px)
+  br.form-desktop-only
+    display: none
+@media(min-width: 600px)
   .radio-flex
     display: flex
-  .desktop-right-align
-    margin-left: 10.1em
+  .desktop-right-align.desktop-right-align.desktop-right-align
+    margin-left: 10.1em !important
     text-align: left
   .desktop-radio-left
     margin-left: 0.2em
@@ -25,10 +30,7 @@ $custom-break: max-width 440px
 
 form:not(#IDCommentNewThreadForm2)
   @extend .pure-form
-  > div
-    +fancy-labels
-  input
-    display: inline-block
+
 #IDCColumnURLLabel, #IDCColumnURL
   display: none !important
 #idc-container-parent a

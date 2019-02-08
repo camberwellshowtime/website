@@ -38,7 +38,7 @@ layout: default
           var elems = document.forms[0].gender
           for(var i = 0; i < elems.length; i++) {
             elems[i].oninput = function(e) {
-              document.forms[0]['gender-other'].disabled = document.forms[0].gender.value !== 'other'
+              document.forms[0]['gender-other'].disabled = document.forms[0].gender.value !== 'Other'
             }
           }
         </script>

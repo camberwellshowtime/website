@@ -17,3 +17,4 @@ title: Cast dates
   </tr>
   {% endfor %}
 </table>
+<i>* Not really an audition - everybody is accepted!</i>.

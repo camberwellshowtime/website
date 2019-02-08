@@ -395,7 +395,7 @@ for(var i = 0; i < elems.length; i++) {
   }
   function setRequiredForRoles() {
     var inputs = document.querySelectorAll('#production input, #tech input, #adult input')
-    var isRequired = document.querySelectorAll('#production input:checked, #tech input:checked, #adult input:checked').length > 0
+    var isRequired = document.querySelectorAll('#production input:checked, #tech input:checked, #adult input:checked').length === 0
     for(var i = 0; i < inputs.length; i++) {
       inputs[i].required = isRequired
     }

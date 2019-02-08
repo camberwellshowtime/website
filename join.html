@@ -1,0 +1,390 @@
+---
+layout: default
+---
+<h1 class='main-title' style='font-size: 5rem; margin: 0 auto; max-width: 600px;'>
+  Join<br>Camberwell<br>Showtime
+</h1>
+<div style='' data-name="join-now">
+</div>
+<article style='max-width: 600px; background-color: #f5f5f5; margin: 0 auto 5em; border-radius: 3px'>
+  <form class="pure-form pure-form-aligned" action='https://forms.camberwellshowtime.com/join' method=post>
+    <fieldset>
+      <h3>Member details</h3>
+      <div class="pure-control-group">
+        <label for="first-name">First Name *</label>
+        <input name="first-name" id="first-name" type="text" placeholder="Neville" required>
+      </div>
+      <div class="pure-control-group" style="display: none">
+        <label for="something">Something *</label>
+        <input name="something" id="something" type="text" placeholder="Something, not">
+      </div>
+      <div class="pure-control-group">
+        <label for="preferred-name">Preferred Name</label>
+        <input name="preferred-name" id="preferred-name" type="text" placeholder="Nev-Dog">
+      </div>
+      <div class="pure-control-group">
+        <label for="last-name">Last Name *</label>
+        <input name="last-name" id="last-name" type="text" placeholder="Kidd" required>
+      </div>
+      <div class="pure-control-group" style='display: flex'>
+        <label>Gender *</label>
+        <div>
+          <label style='margin-left: 0.5em; text-align: left'><input style='margin-right: 0.2em' type=radio name=gender value=Female>Female</label></br>
+          <label style='margin-left: 0.5em; text-align: left'><input style='margin-right: 0.2em' type=radio name=gender value=Male>Male</label></br>
+          <label style='margin-left: 0.5em; text-align: left'><input style='margin-right: 0.2em' type=radio name=gender value=Other>Other: </label></br>
+          <input style='margin-left: 0.5em; text-align: left' type=text name=gender-other disabled>
+        </div>
+        <script>
+          var elems = document.forms[0].gender
+          for(var i = 0; i < elems.length; i++) {
+            elems[i].oninput = function(e) {
+              document.forms[0]['gender-other'].disabled = document.forms[0].gender.value !== 'other'
+            }
+          }
+        </script>
+      </div>
+      <div class="pure-control-group">
+        <label for="dob">Date of birth*</label>
+        <!-- TODO FINDME By August the 9th 2019, you must be 11 to participate in cast and 15 to participate in the technical team. -->
+        <input type='date' id=dob name=dob required min="1900-01-01" max="2008-08-09" style='background-color: rgb(255, 255, 255); color: black'>
+      </div>
+      <script>
+        document.forms[0].dob.oninput = function(e) {
+            var dest = new Date(2019, 07, 09)
+            var dob = new Date(document.forms[0].dob.value)
+            var age = dest.getFullYear() - dob.getFullYear()
+            var m = dest.getMonth() - dob.getMonth()
+            if (m < 0 || (m === 0 && dest.getDate() < dest.getDate())) {
+                age--
+            }
+            var guardiansElem = document.getElementById('guardians')
+            var elems = guardiansElem.querySelectorAll('input, select')
+            var over18 = age >= 18
+            guardiansElem.style.display = over18 ? 'none' : ''
+            for(var i = 0; i < elems.length; i++) {
+              elems[i].disabled = over18
+            }
+            elems = document.querySelectorAll('[name=wwc]')
+            for(var i = 0; i < elems.length; i++) {
+              elems[i].disabled = !over18
+              elems[i].closest('.pure-control-group').style.display = over18 ? '' : 'none'
+            }
+            var adultElem = document.getElementById('adult')
+            adultElem.style.display = over18 ? '' : 'none'
+            elems = adultElem.querySelectorAll('input, select')
+            for(var i = 0; i < elems.length; i++) {
+              elems[i].disabled = !over18
+            }
+            var over15 = age >= 15
+            var techElem = document.getElementById('tech')
+            techElem.style.display = over15 ? '' : 'none'
+            elems = techElem.querySelectorAll('input, select')
+            for(var i = 0; i < elems.length; i++) {
+              elems[i].disabled = !over15
+            }
+            var over27 = age >= 27
+            var productionElem = document.getElementById('production')
+            productionElem.style.display = over27 ? 'none' : ''
+            elems = productionElem.querySelectorAll('input, select')
+            for(var i = 0; i < elems.length; i++) {
+              elems[i].disabled = over27
+            }
+        }
+      </script>
+      <div class="pure-control-group">
+        <label for="address">Address *</label>
+        <input type='text' id=address name=address required placeholder='1/123 Some st'>
+      </div>
+      <div class="pure-control-group">
+        <label for="suburb">Suburb *</label>
+        <input type='text' id=suburb name=suburb required placeholder='Camberwell'>
+      </div>
+      <div class="pure-control-group">
+        <label for="postcode">Postcode *</label>
+        <input type='text' id=postcode name=postcode required placeholder='3124' pattern='[0-9]{4}' title='Please enter 4 digits.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')">
+      </div>
+      <div class="pure-control-group">
+        <label for="primary-phone-number">Primary phone number *</label>
+        <input type='text' id=primary-phone-number name=primary-phone-number required pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=0400000000>
+      </div>
+      <div class="pure-control-group">
+        <label for="alternative-phone-number">Alternative phone number</label>
+        <input type='text' id=alternative-phone-number name=alternative-phone-number pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=90000000>
+      </div>
+      <div class="pure-control-group">
+        <label for="email-address">Email address *</label>
+        <input type='email' id='email-address' name='email-address' required placeholder='me@somewhere.com'>
+      </div>
+      <div class="pure-control-group">
+        <label for="group">Group *</label>
+        <select id=group name=group required>
+          {% for group in site.data.groups %}
+            {% assign value = group.value | default: group.label %}
+            <option value='{{ value }}'>{{ group.label }}</option>
+          {% endfor %}
+        </select>
+        <label for="other-group">Other group,<br> please specify</label>
+        <input type=text name=group-other disabled placeholder='1st Windy Corner'>
+        <script>
+          document.forms[0].group.oninput = function(e) {
+            document.forms[0]['group-other'].disabled = document.forms[0].group.options[document.forms[0].group.selectedIndex].value.toLowerCase() !== 'other'
+          }
+        </script>
+      </div>
+      <div class="pure-control-group">
+        <label for="section">Section *</label>
+        <select id=section name=section required>
+          {% for section in site.data.sections %}
+            {% assign value = section.value | default: section.label %}
+            <option value='{{ value }}'>{{ section.label }}</option>
+          {% endfor %}
+        </select>
+        <input style='margin-left: 10.1em; text-align: left' type=text name=section-other disabled required>
+        <script>
+          document.forms[0].section.oninput = function(e) {
+            document.forms[0]['section-other'].disabled = document.forms[0].section.options[document.forms[0].section.selectedIndex].value.toLowerCase() !== 'other'
+          }
+        </script>
+      </div>
+      <div class="pure-control-group">
+        <label>Have a Working With Children Check? *</label>
+        <label style='width: auto; margin-left: 0.2em'><input style='margin-right: 0.2em' type=radio name=wwc value=Yes>Yes</label>
+        <label style='width: auto; margin-left: 1em'><input style='margin-right: 0.2em' type=radio name=wwc value=No>No</label>
+      </div>
+      <div class="pure-control-group">
+        <label for="membership-number">Scout/Girl Guide Membership number</label>
+        <input id="membership-number" name="membership-number" type="text" placeholder="123456" pattern='[0-9]+' title='Please enter your membership number as digits only.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')">
+      </div>
+      <div class="pure-control-group">
+        <label for="school">School</label>
+        <input id="school" name="school" type="text" placeholder="Camberhorn Grammar">
+      </div>
+      <div class="pure-control-group">
+        <label for="year">Year</label>
+        <input id="year" name="year" type="text" placeholder="10">
+      </div>
+      <div class="pure-control-group">
+        <label for="occupation">Occupation</label>
+        <input id="occupation" name="occupation" type="text" placeholder="Wizard">
+      </div>
+      <div class="pure-control-group" style='display: flex'>
+        <label>Do you play a musical instrument?</label>
+        <div style='margin-left: 0.5em'>
+          {% for instrument in site.data.instruments %}
+            {% assign value = instrument.value | default: instrument.label %}
+            <label style='text-align: left'>
+              <input type=checkbox name=instruments value='{{ value }}'>
+              {{ instrument.label }}
+            </label><br>
+          {% endfor %}
+          <input style='text-align: left' type=text name=instrument-other disabled required>
+        </div>
+        <script>
+          document.querySelector('[name=instruments][value=Other]').oninput = function(e) {
+            document.forms[0]['instrument-other'].disabled = !document.querySelector('[name=instruments][value=Other]').checked
+          }
+        </script>
+      </div>
+      <div class="pure-control-group">
+        <label for="instruments-time">How many years have you played/studied these instruments?</label>
+        <input id="instruments-time" name="instruments-time" type="text" placeholder="Ukulele: 20 years">
+      </div>
+      <div class="pure-control-group">
+        <label for="hobbies">Do you have any other hobbies or interests?</label>
+        <input id="hobbies" name="hobbies" type="text" placeholder="Quidditch">
+      </div>
+      <!--  // TODO FINDME DONT COMMIT  NEED TO DO REQUIRED-NESS -->
+      <h3>What would you like to do? (required)</h3>
+      <div class="pure-control-group" id=production>
+        <h4>Production</h4>
+        {% for role in site.data.role_production %}
+          {% assign value = role.value | default: role.label %}
+          <label style='text-align: left; margin-left: 10.2em'>
+            <input type=radio name=roles-production value='{{ value }}'>
+            {{ role.label }}
+          </label><br>
+        {% endfor %}
+      </div>
+      <div id=tech>
+        <h4>Technical (open to people aged 15 and over)</h4>
+        <div class="pure-control-group">
+          {% for role in site.data.role_tech %}
+            {% assign value = role.value | default: role.label %}
+            <label style='text-align: left; margin-left: 10.2em'>
+              <input type=checkbox name=roles-tech value='{{ value }}'>
+              {{ role.label }}
+            </label><br>
+          {% endfor %}
+        </div>
+      </div>
+      <div id=adult>
+        <h4>Adult support</h4>
+        <div class="pure-control-group">
+          {% for role in site.data.role_adult %}
+            {% assign value = role.value | default: role.label %}
+            <label style='text-align: left; margin-left: 10.2em'>
+              <input type=checkbox name=roles-adult value='{{ value }}'>
+              {{ role.label }}
+            </label><br>
+          {% endfor %}
+        </div>
+      </div>
+      <div id='guardians'>
+        <h3>Parent/Guardian contact details</h3>
+        <h4>Primary Contact</h4>
+        <div class="pure-control-group">
+          <label>Relationship *</label>
+          <label style='width: auto; margin-left: 0.2em'><input style='margin-right: 0.2em' type=radio name='guardian1-relationship' value=Guardian required>Guardian</label>
+          <label style='width: auto; margin-left: 1em'><input style='margin-right: 0.2em' type=radio name='guardian1-relationship' value=Parent required>Parent</label>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian1-first-name">First Name *</label>
+          <input name="guardian1-first-name" id="guardian1-first-name" type="text" placeholder="Neville Snr" required>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian1-last-name">Last Name *</label>
+          <input name="guardian1-last-name" id="guardian1-last-name" type="text" placeholder="Kidd" required>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian1-primary-phone-number">Primary phone number *</label>
+          <input type='text' id=guardian1-primary-phone-number name=guardian1-primary-phone-number required pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=0400000000>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian1-alternative-phone-number">Alternative phone number</label>
+          <input type='text' id=guardian1-alternative-phone-number name=guardian1-alternative-phone-number pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=90000000>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian1-email-address">Email address *</label>
+          <input type='email' id='guardian1-email-address' name='guardian1-email-address' required placeholder='me@somewhere.com'>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian1-address">Address *</label>
+          <input type='text' id=guardian1-address name=guardian1-address required placeholder='1/123 Some st, Camberwell, 3124'>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian1-occupation">Occupation</label>
+          <input type='text' id=guardian1-occupation name=guardian1-occupation placeholder="Senior Wizard">
+        </div>
+        <h4>Secondary Contact</h4>
+        <div class="pure-control-group">
+          <label>Relationship *</label>
+          <label style='width: auto; margin-left: 0.2em'><input style='margin-right: 0.2em' type=radio name='guardian2-relationship' value=Guardian required>Guardian</label>
+          <label style='width: auto; margin-left: 1em'><input style='margin-right: 0.2em' type=radio name='guardian2-relationship' value=Parent required>Parent</label>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian2-first-name">First Name *</label>
+          <input name="guardian2-first-name" id="guardian2-first-name" type="text" placeholder="Neville Snr" required>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian2-last-name">Last Name *</label>
+          <input name="guardian2-last-name" id="guardian2-last-name" type="text" placeholder="Kidd" required>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian2-primary-phone-number">Primary phone number *</label>
+          <input type='text' id=guardian2-primary-phone-number name=guardian2-primary-phone-number required pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=0400000000>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian2-alternative-phone-number">Alternative phone number</label>
+          <input type='text' id=guardian2-alternative-phone-number name=guardian2-alternative-phone-number pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=90000000>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian2-email-address">Email address *</label>
+          <input type='email' id='guardian2-email-address' name='guardian2-email-address' required placeholder='me@somewhere.com'>
+        </div>
+        <div class="pure-control-group">
+          <label for="guardian2-occupation">Occupation</label>
+          <input type='text' id=guardian2-occupation name=guardian2-occupation placeholder="Senior Wizard">
+        </div>
+      </div>
+      <button style='margin-left: 10.2em' type="submit" class="pure-button pure-button-primary">Join us!</button>
+  </form>
+</article>
+<section data-role="after-submission">
+  <div>
+    <p>Thanks for your application for the 55th Camberwell Showtime! We're so excited to have you on the team!</p>
+    <p>We'll be in touch with additional details soon but for now <a href="/#cast-calendar">here</a> are a list of dates that you’ll need to know.</p>
+    <p>If you’re on Facebook, connect with us by <a href="//www.facebook.com/CamberwellShowtime">liking our page</a> to keep up to date on all the latest Showtime info.</p>
+    <p>See you soon!</p>
+  </div>
+</section>
+<p class="over-11">You must be over 11 to do Camberwell Showtime</p>
+
+<footer class='default-footer'>
+  <nav class='container'>
+    <div class='links' id='menu'>
+      <a href='/'>Home</a>
+      <a href='https://www.facebook.com/CamberwellShowtime/'>Facebook</a>
+      <a href='#' class='only-mobile'>Close menu</a>
+    </div>
+    <div class='contact' id='contact'>
+      Contact:
+      {% for contact in site.data.contacts.contacts %}
+      {% if contact.href %}
+      <a href='{{ contact.href }}'>{{ contact.label }}</a>
+      {% else %}
+      <a href='mailto:{{ contact.email }}'>{{ contact.label }}</a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% if site.data.general.members_area_url %}
+    <a class='only-desktop' href='{{ site.data.general.members_area_url }}'>Member's area</a>
+    {% endif %}
+  </nav>
+</footer>
+
+<script src="//cdn.jsdelivr.net/npm/mailcheck@1.1.1/src/mailcheck.min.js" integrity="sha256-aAPNEz/OtzaNXAt4jf5P9xxwG8GvJ5owTS5BtGMELGs=" crossorigin="anonymous"></script>
+<script>
+var parsedUrl = new URL(window.location.href)
+parsedUrl.searchParams.forEach(function(v, k) {
+  var elem = document.getElementById(k)
+  if(elem) elem.value = v
+})
+
+var elems = document.querySelectorAll('[type=email]')
+var domains = Mailcheck.defaultDomains.concat(['yahoo.com.au', 'hotmail.com.au', 'bigpond.com.au', 'bigpond.com', 'tpg.com.au', 'iinet.com.au'])
+var topLevelDomains = Mailcheck.defaultTopLevelDomains.concat([ 'com', 'com.au', 'net', 'net.au', 'au' ])
+var secondLevelDomains = Mailcheck.defaultSecondLevelDomains.concat([ 'hotmail' ])
+for(var i = 0; i < elems.length; i++) {
+  elems[i].onblur = function(e) {
+    Mailcheck.run({
+      email: this.value,
+      domains: domains,
+      topLevelDomains: topLevelDomains,
+      secondLevelDomains: secondLevelDomains,
+      suggested: function(suggestion) {
+        var target = e.target
+        var elems = target.parentElement.querySelectorAll('[data-suggestion]')
+        for(var i = 0; i < elems.length; i++) elems[i].parentElement.removeChild(elems[i])
+        var div = document.createElement('div')
+        div.style.marginLeft = '10.2em'
+        div.setAttribute('data-suggestion', '')
+        div.innerHTML = 'Did you mean: '
+        var span = document.createElement('span')
+        span.style.textDecoration = 'underline'
+        span.style.cursor = 'pointer'
+        span.innerHTML = suggestion.full
+        span.onclick = function() {
+          target.value = suggestion.full
+          var elems = target.parentElement.querySelectorAll('[data-suggestion]')
+          for(var i = 0; i < elems.length; i++) elems[i].parentElement.removeChild(elems[i])
+        }
+        div.appendChild(span)
+        target.parentElement.appendChild(div)
+      },
+      empty: function() {
+        var elems = e.target.parentElement.querySelectorAll('[data-suggestion]')
+        for(var i = 0; i < elems.length; i++) elems[i].parentElement.removeChild(elems[i])
+      }
+    })
+  }
+}
+</script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/flatpickr@4.5.2/dist/flatpickr.css" integrity="sha256-tUFg4y6qj4WTN1LzL83dCuIJwr/+Vhph/nf82gD/X2w=" crossorigin="anonymous">
+<script src="//cdn.jsdelivr.net/npm/flatpickr@4.5.2/dist/flatpickr.min.js" integrity="sha256-44TeE1bzEP4BfpL6Wb05CVgLDKN6OzOAI79XNMPR4Bs=" crossorigin="anonymous"></script>
+<script>
+var elems = document.querySelectorAll('[type=date]')
+for(var i = 0; i < elems.length; i++) {
+  var elem = elems[i]
+  flatpickr(elem, { minDate: elem.getAttribute('min'), maxDate: elem.getAttribute('max') })
+}
+</script>

@@ -1,0 +1,217 @@
+@import 'purecss'
+$text: #333
+$custom-break: max-width 440px
+.required-message, .error-message
+  color: #c43b1d
+  display: none
+  font-size: 13px
+
+.required ~ .required-message, .error ~ .error-message
+  display: block
+
+form:not(#IDCommentNewThreadForm2)
+  @extend .pure-form
+  > div
+    +fancy-labels
+  input
+    display: inline-block
+#IDCColumnURLLabel, #IDCColumnURL
+  display: none !important
+#idc-container-parent a
+  color: #268bd2
+
+.ss-form-entry > label.ss-q-item-label
+  margin-top: 0 !important
+
+.ss-q-title
+  padding-right: 0.5em
+
+.error-container
+  position: absolute
+  top: -1em
+  left: 0
+  right: 0
+  border: 1px solid red
+  background-color: rgb(200, 40, 40)
+  transition: height 0.5s linear, opacity 0.5s linear
+  &:empty
+    display: none
+  div
+    padding-bottom: 0.1em
+  &.only-mobile
+    border-bottom-left-radius: 3px
+    border-bottom-right-radius: 3px
+    height: 0
+    overflow: hidden
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 1
+    div
+      padding-top: 1em
+  &.only-desktop
+    opacity: 0
+[data-name="join-now"], [data-name='parents-form']
+  position: relative
+  min-height: 80px
+  form
+    transition: height 1s ease-in
+    overflow: hidden
+    min-width: 350px
+    max-width: 600px
+    margin: 0 auto
+    @media($only-tablet)
+      width: auto
+      min-width: auto
+    @media($custom-break)
+      min-width: auto
+      text-align: center
+  label
+    float: left
+    width: 40%
+    text-align: right
+    margin-right: 1em
+    @media($custom-break)
+      display: none
+  input[type='text'], input[type='email']
+    width: 18em
+    @media($custom-break)
+      width: 95%
+  div
+    +clearfix
+  .ss-item
+    margin-bottom: 1em
+  li
+    list-style-type: none
+  ul
+    label
+      float: none
+      width: auto
+  table
+    text-align: right
+    float: right
+.label-container
+  +fancy-labels
+  display: table-cell
+  label
+    color: lighten($text, 30%)
+    text-align: left
+    width: auto
+    display: inline-block
+    @media($custom-break)
+      color: $text
+  @media($custom-break)
+    display: block
+    margin-left: 1em
+[aria-label="(Required field)"]
+  display: none
+.ss-form-question
+  display: table-row
+  display: block
+  label
+    display: table-cell
+  ul
+    padding-left: 0
+    display: table-cell
+  .ss-secondary-text
+    font-style: italic
+    display: table-cell
+    @media($custom-break)
+      margin-right: 0.5em
+      display: block
+  .ss-checkbox .ss-secondary-text
+    display: inline-block
+  @media($custom-break)
+    display: block
+    ul, label
+      display: block
+      text-align: left
+    .ss-q-item-label
+      display: none
+    .ss-date, .ss-radio, .ss-checkbox, .ss-select
+      margin-left: 1em
+      .ss-q-item-label
+        display: block
+      label
+        margin-right: 0
+    .ss-checkbox, .ss-select
+      .ss-q-item-label
+        width: 100%
+        float: none
+        [aria-label]
+          width: 0
+    .ss-select
+      margin-left: 0
+      select
+        margin-left: -0.5em
+      .ss-q-item-label
+        margin-left: 1em
+    select
+      width: 90%
+.errorbox-good
+  > div
+    border: 2px solid rgba(0,0,0,0)
+.errorbox-bad
+  > div
+    border: 2px solid #c43b1d
+  .error-message, .required-message
+    display: block
+    text-align: right
+@media($custom-break)
+  .ss-radio .ss-form-entry
+    text-align: left
+    display: table
+    width: 100%
+    .ss-q-item-label, ul
+      display: table-row
+    .ss-choice-item
+      position: relative
+    .ss-q-other-container
+      position: absolute
+      right: 0
+      left: 5em
+      bottom: -0.75em
+  .ss-checkbox .ss-form-entry
+      .ss-choice-item
+        position: relative
+      .ss-q-other-container
+        position: absolute
+        right: 0
+        left: 5em
+        bottom: -0.75em
+  .ss-radio, .ss-date
+    .ss-q-item-label
+      font-weight: bold
+      font-size: 1.5em
+      width: 100%
+      label
+        display: none
+[data-role="after-submission"], .over-11
+  display: none
+  text-align: center
+@media($only-tablet)
+  .ss-q-date
+    text-align: left
+
+[data-name='parents-form']
+  li.ss-choice-item label
+    text-align: left
+
+input, select
+  color: #333
+
+
+
+form
+  svg
+    display: none
+  .freebirdFormviewerViewFormContent, .freebirdFormviewerViewItemList
+    display: table
+  //, .freebirdFormviewerViewItemsItemItem, .freebirdFormviewerViewItemsTextTextItem
+  .freebirdFormviewerViewNumberedItemContainer
+    display: table-row
+  .freebirdFormviewerViewItemsItemItemHeader, [data-input]
+    display: table-cell
+  .freebirdFormviewerViewItemsTextItemWrapper
+    display: table-cell

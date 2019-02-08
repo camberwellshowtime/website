@@ -3,13 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Snowed Inn - Camberwell Showtime 2018</title>
+  <title>Camberwell Showtime 2019</title>
   <meta charset='UTF-8'/>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <meta name='description' content='The 54th Camberwell Showtime is Snowed Inn. Snowed Inn: presented by the great Scout and Guide show that keeps getting better and better after 50 years!'/>
+  <meta name='description' content='The 55th Camberwell Showtime is waiting for you! Camberwell Showtime, the great Scout and Guide show that keeps getting better and better after 50 years!'/>
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
   <link rel='shortcut icon' href='{{site.baseurl}}/favicon.ico' type='image/x-icon' />
-  <link href='{{site.baseurl}}/css/site.css?date=20180812' rel='stylesheet' />
-  <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Material+Icons'>
+  <link href='{{site.baseurl}}/css/site.css?date=20190202' rel='stylesheet' />
+  <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Material+Icons|Orbitron'>
   <script async src="//www.googletagmanager.com/gtag/js?id=UA-40100682-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -19,6 +20,11 @@
   </script>
 </head>
 <body>
+  <div id=bg>
+    <div id=stars></div>
+    <div id=stars2></div>
+    <div id=stars3></div>
+  </div>
   <div id='top'></div>
   <header class='only-mobile'>
     <a class='material-icons menu-button' href='#menu'>menu</a>
@@ -26,38 +32,7 @@
   <main class='default-container'>
     {{content}}
   </main>
-  <footer class='default-footer'>
-    <nav class='container'>
-      <div class='links' id='menu'>
-        <a href='#top'>Top</a>
-        <a href='#about'>About</a>
-        <a href='#contact' class='only-mobile'>Contact</a>
-        <a href='#cast'>Cast details</a>
-        <a href='https://www.facebook.com/CamberwellShowtime/'>Facebook</a>
-        <a href='#performance'>Performance details</a>
-        {% if site.data.general.members_area_url %}
-        <a class='only-mobile' href='{{ site.data.general.members_area_url }}'>Member's area</a>
-        {% endif %}
-        {% if site.data.general.tickets_url %}
-        <a href='{{ site.data.general.tickets_url }}'>Tickets</a>
-        {% endif %}
-        <a href='#' class='only-mobile'>Close menu</a>
-      </div>
-      <div class='contact' id='contact'>
-        Contact:
-        {% for contact in site.data.contacts.contacts %}
-        {% if contact.href %}
-        <a href='{{ contact.href }}'>{{ contact.label }}</a>
-        {% else %}
-        <a href='mailto:{{ contact.email }}'>{{ contact.label }}</a>
-        {% endif %}
-        {% endfor %}
-      </div>
-      {% if site.data.general.members_area_url %}
-      <a class='only-desktop' href='{{ site.data.general.members_area_url }}'>Member's area</a>
-      {% endif %}
-    </nav>
-  </footer>
+  <script crossorigin="anonymous" src="//polyfill.io/v3/polyfill.min.js?flags=always&features=default%2CURL%2CIntl%2CElement.prototype.closest"></script>
   <link rel='stylesheet' href='//cdn.jsdelivr.net/drop/1.4.2/css/drop-theme-arrows-bounce-dark.min.css'>
   <script src='//cdn.jsdelivr.net/npm/smooth-scroll@12.1.5/dist/js/smooth-scroll.min.js'></script>
   <script>

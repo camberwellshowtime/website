@@ -1,0 +1,91 @@
+$mobile-size: em(320)
+// in main.coffee as well
+$tablet-size: 720px
+$desktop-size: em(960)
+$largedesktop-size: em(1050)
+
+$mobile: new-breakpoint(min-width $mobile-size 4)
+$only-mobile: new-breakpoint(max-width $mobile-size 4)
+$tablet: new-breakpoint(min-width $tablet-size 8)
+$only-tablet: new-breakpoint(max-width $tablet-size 8)
+$only-desktop: new-breakpoint(max-width $desktop-size 12)
+$desktop: new-breakpoint(min-width $desktop-size 12)
+$under-desktop: new-breakpoint(max-width $desktop-size 12)
+$largedesktop: new-breakpoint(min-width $largedesktop-size 16)
+$under-largedesktop: new-breakpoint(max-width $largedesktop-size 16)
+
+.only-mobile
+  @media($tablet)
+    display: none !important
+.only-desktop
+  @media($only-tablet)
+    display: none !important
+=clearfix
+  &::after
+    clear: both
+    content: ""
+    display: block
+
+=unstyled-link
+  color: inherit
+  text-decoration: inherit
+  cursor: inherit
+  & :active, & :focus
+    outline: none
+
+// this mixin is used to add the outline to the text
+=textShadowToCropUnderline($color)
+  text-shadow: 0.03em 0 $color, -0.03em 0 $color, 0 0.03em $color, 0 -0.03em $color, 0.06em 0 $color, -0.06em 0 $color, 0.09em 0 $color, -0.09em 0 $color, 0.12em 0 $color, -0.12em 0 $color, 0.15em 0 $color, -0.15em 0 $color
+
+// this puts it all together
+=linkUnderlines($background, $color)
+  color: $color
+  text-decoration: none
+  +textShadowToCropUnderline($background)
+  background-image: linear-gradient($background, $background), linear-gradient($background, $background), linear-gradient($color, $color)
+  background-size: .05em 1px, .05em 1px, 1px 1px
+  background-repeat: no-repeat, no-repeat, repeat-x
+  background-position: 0% 90%, 100% 90%, 0% 90%
+  &::selection
+    +textShadowToCropUnderline($selectionColor)
+    background-color: $selectionColor
+  &::-moz-selection
+    +textShadowToCropUnderline($selectionColor)
+    background-color: $selectionColor
+  &:before,
+  &:after,
+  *,
+  *:before,
+  *:after
+    text-shadow: none
+  &:visited
+    color: $color
+
+=fancy-labels
+  position: relative
+  label
+    color: $text
+    position: absolute
+    top: -0.1em
+    left: 0.5em
+    transition: all 0.2s
+    background-color: white
+    cursor: text
+  input:focus + label, input.focus + label, input.has-content + label
+    border-radius: 2px
+    border: 1px solid #ccc
+    line-height: 100%
+    top: -1em
+    left: 0.9em
+    font-size: 70%
+    margin-left: 1px
+    margin-top: 3px
+    color: blue
+    text-transform: uppercase
+    font-weight: 200
+  input
+    &[type="text"], &[type="email"]
+      padding-top: 10px
+      padding-bottom: 2px
+    &[required] + label::after
+      content: ' (required)'

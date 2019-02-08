@@ -200,7 +200,7 @@ layout: default
         {% for role in site.data.role_production %}
           {% assign value = role.value | default: role.label %}
           <label style='text-align: left; margin-left: 10.2em'>
-            <input type=radio name=roles-production value='{{ value }}'>
+            <input type=checkbox name=roles-production value='{{ value }}' required>
             {{ role.label }}
           </label><br>
         {% endfor %}
@@ -211,7 +211,7 @@ layout: default
           {% for role in site.data.role_tech %}
             {% assign value = role.value | default: role.label %}
             <label style='text-align: left; margin-left: 10.2em'>
-              <input type=checkbox name=roles-tech value='{{ value }}'>
+              <input type=checkbox name=roles-tech value='{{ value }}' required>
               {{ role.label }}
             </label><br>
           {% endfor %}
@@ -223,7 +223,7 @@ layout: default
           {% for role in site.data.role_adult %}
             {% assign value = role.value | default: role.label %}
             <label style='text-align: left; margin-left: 10.2em'>
-              <input type=checkbox name=roles-adult value='{{ value }}'>
+              <input type=checkbox name=roles-adult value='{{ value }}' required>
               {{ role.label }}
             </label><br>
           {% endfor %}
@@ -387,4 +387,17 @@ for(var i = 0; i < elems.length; i++) {
   var elem = elems[i]
   flatpickr(elem, { minDate: elem.getAttribute('min'), maxDate: elem.getAttribute('max') })
 }
+</script>
+<script>
+  var elems = document.querySelectorAll('#production input, #tech input, #adult input')
+  for(var i = 0; i < elems.length; i++) {
+    elems[i].onchange = setRequiredForRoles
+  }
+  function setRequiredForRoles() {
+    var inputs = document.querySelectorAll('#production input, #tech input, #adult input')
+    var isRequired = document.querySelectorAll('#production input:checked, #tech input:checked, #adult input:checked').length > 0
+    for(var i = 0; i < inputs.length; i++) {
+      inputs[i].required = isRequired
+    }
+  }
 </script>

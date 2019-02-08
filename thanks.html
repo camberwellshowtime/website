@@ -10,3 +10,26 @@ layout: default
   <p>If you’re on Facebook, connect with us by <a href="//www.facebook.com/CamberwellShowtime">liking our page</a> to keep up to date on all the latest Showtime info.</p>
   <p>See you soon!</p>
 </article>
+
+<footer class='default-footer'>
+  <nav class='container'>
+    <div class='links' id='menu'>
+      <a href='/'>Home</a>
+      <a href='https://www.facebook.com/CamberwellShowtime/'>Facebook</a>
+      <a href='#' class='only-mobile'>Close menu</a>
+    </div>
+    <div class='contact' id='contact'>
+      Contact:
+      {% for contact in site.data.contacts.contacts %}
+      {% if contact.href %}
+      <a href='{{ contact.href }}'>{{ contact.label }}</a>
+      {% else %}
+      <a href='mailto:{{ contact.email }}'>{{ contact.label }}</a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% if site.data.general.members_area_url %}
+    <a class='only-desktop' href='{{ site.data.general.members_area_url }}'>Member's area</a>
+    {% endif %}
+  </nav>
+</footer>

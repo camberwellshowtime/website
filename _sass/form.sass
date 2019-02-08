@@ -9,6 +9,20 @@ $custom-break: max-width 440px
 .required ~ .required-message, .error ~ .error-message
   display: block
 
+@media(max-width: 850px)
+  .form-desktop-only
+    display: none
+@media(min-width: 850px)
+  .radio-flex
+    display: flex
+  .desktop-right-align
+    margin-left: 10.1em
+    text-align: left
+  .desktop-radio-left
+    margin-left: 0.2em
+  .desktop-radio-between
+    margin-left: 1em
+
 form:not(#IDCommentNewThreadForm2)
   @extend .pure-form
   > div

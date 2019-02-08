@@ -26,7 +26,7 @@ layout: default
         <label for="last-name">Last Name *</label>
         <input name="last-name" id="last-name" type="text" placeholder="Kidd" required>
       </div>
-      <div class="pure-control-group" style='display: flex'>
+      <div class="pure-control-group" class='radio-flex'>
         <label>Gender *</label>
         <div>
           <label style='margin-left: 0.5em; text-align: left'><input style='margin-right: 0.2em' type=radio name=gender value=Female>Female</label></br>
@@ -123,7 +123,7 @@ layout: default
             <option value='{{ value }}'>{{ group.label }}</option>
           {% endfor %}
         </select>
-        <label for="other-group">Other group,<br> please specify</label>
+        <label for="other-group">Other group,<br class='form-desktop-only'> please specify</label>
         <input type=text name=group-other disabled placeholder='1st Windy Corner'>
         <script>
           document.forms[0].group.oninput = function(e) {
@@ -139,7 +139,7 @@ layout: default
             <option value='{{ value }}'>{{ section.label }}</option>
           {% endfor %}
         </select>
-        <input style='margin-left: 10.1em; text-align: left' type=text name=section-other disabled required>
+        <input class='desktop-right-align' type=text name=section-other disabled required>
         <script>
           document.forms[0].section.oninput = function(e) {
             document.forms[0]['section-other'].disabled = document.forms[0].section.options[document.forms[0].section.selectedIndex].value.toLowerCase() !== 'other'
@@ -148,8 +148,8 @@ layout: default
       </div>
       <div class="pure-control-group">
         <label>Have a Working With Children Check? *</label>
-        <label style='width: auto; margin-left: 0.2em'><input style='margin-right: 0.2em' type=radio name=wwc value=Yes>Yes</label>
-        <label style='width: auto; margin-left: 1em'><input style='margin-right: 0.2em' type=radio name=wwc value=No>No</label>
+        <label style='width: auto;' class='desktop-radio-left'><input style='margin-right: 0.2em' type=radio name=wwc value=Yes>Yes</label>
+        <label style='width: auto;' class='desktop-radio-between'><input style='margin-right: 0.2em' type=radio name=wwc value=No>No</label>
       </div>
       <div class="pure-control-group">
         <label for="membership-number">Scout/Girl Guide Membership number</label>
@@ -167,7 +167,7 @@ layout: default
         <label for="occupation">Occupation</label>
         <input id="occupation" name="occupation" type="text" placeholder="Wizard">
       </div>
-      <div class="pure-control-group" style='display: flex'>
+      <div class="pure-control-group" class='radio-flex'>
         <label>Do you play a musical instrument?</label>
         <div style='margin-left: 0.5em'>
           {% for instrument in site.data.instruments %}
@@ -175,7 +175,7 @@ layout: default
             <label style='text-align: left'>
               <input type=checkbox name=instruments value='{{ value }}'>
               {{ instrument.label }}
-            </label><br>
+            </label><br class='form-desktop-only'>
           {% endfor %}
           <input style='text-align: left' type=text name=instrument-other disabled required>
         </div>
@@ -199,10 +199,10 @@ layout: default
         <h4>Production</h4>
         {% for role in site.data.role_production %}
           {% assign value = role.value | default: role.label %}
-          <label style='text-align: left; margin-left: 10.2em'>
+          <label class='desktop-right-align'>
             <input type=checkbox name=roles-production value='{{ value }}' required>
             {{ role.label }}
-          </label><br>
+          </label><br class='form-desktop-only'>
         {% endfor %}
       </div>
       <div id=tech>
@@ -210,10 +210,10 @@ layout: default
         <div class="pure-control-group">
           {% for role in site.data.role_tech %}
             {% assign value = role.value | default: role.label %}
-            <label style='text-align: left; margin-left: 10.2em'>
+            <label class='desktop-right-align'>
               <input type=checkbox name=roles-tech value='{{ value }}' required>
               {{ role.label }}
-            </label><br>
+            </label><br class='form-desktop-only'>
           {% endfor %}
         </div>
       </div>
@@ -222,10 +222,10 @@ layout: default
         <div class="pure-control-group">
           {% for role in site.data.role_adult %}
             {% assign value = role.value | default: role.label %}
-            <label style='text-align: left; margin-left: 10.2em'>
+            <label class='desktop-right-align'>
               <input type=checkbox name=roles-adult value='{{ value }}' required>
               {{ role.label }}
-            </label><br>
+            </label><br class='form-desktop-only'>
           {% endfor %}
         </div>
       </div>
@@ -234,8 +234,8 @@ layout: default
         <h4>Primary Contact</h4>
         <div class="pure-control-group">
           <label>Relationship *</label>
-          <label style='width: auto; margin-left: 0.2em'><input style='margin-right: 0.2em' type=radio name='guardian1-relationship' value=Guardian required>Guardian</label>
-          <label style='width: auto; margin-left: 1em'><input style='margin-right: 0.2em' type=radio name='guardian1-relationship' value=Parent required>Parent</label>
+          <label class='desktop-radio-left' style='width: auto'><input style='margin-right: 0.2em' type=radio name='guardian1-relationship' value=Guardian required>Guardian</label>
+          <label class='desktop-radio-between' style='width: auto'><input style='margin-right: 0.2em' type=radio name='guardian1-relationship' value=Parent required>Parent</label>
         </div>
         <div class="pure-control-group">
           <label for="guardian1-first-name">First Name *</label>
@@ -268,8 +268,8 @@ layout: default
         <h4>Secondary Contact</h4>
         <div class="pure-control-group">
           <label>Relationship *</label>
-          <label style='width: auto; margin-left: 0.2em'><input style='margin-right: 0.2em' type=radio name='guardian2-relationship' value=Guardian required>Guardian</label>
-          <label style='width: auto; margin-left: 1em'><input style='margin-right: 0.2em' type=radio name='guardian2-relationship' value=Parent required>Parent</label>
+          <label class='desktop-radio-left' style='width: auto'><input style='margin-right: 0.2em' type=radio name='guardian2-relationship' value=Guardian required>Guardian</label>
+          <label class='desktop-radio-between' style='width: auto'><input style='margin-right: 0.2em' type=radio name='guardian2-relationship' value=Parent required>Parent</label>
         </div>
         <div class="pure-control-group">
           <label for="guardian2-first-name">First Name *</label>
@@ -296,7 +296,7 @@ layout: default
           <input type='text' id=guardian2-occupation name=guardian2-occupation placeholder="Senior Wizard">
         </div>
       </div>
-      <button style='margin-left: 10.2em' type="submit" class="pure-button pure-button-primary">Join us!</button>
+      <button type="submit" class="desktop-right-align pure-button pure-button-primary">Join us!</button>
   </form>
 </article>
 <section data-role="after-submission">

@@ -43,7 +43,7 @@
     if(window.location.hash && !!~window.location.hash.indexOf('=')) {
       window.location.pathname = '/admin'
     }
-    var elems = document.querySelectorAll('[title]:not([title=""])')
+    var elems = document.querySelectorAll('[title]:not([title=""]):not(input):not(select)')
     for(var idx = 0; idx < elems.length; idx++) {
       var e = elems[idx]
       new Drop({

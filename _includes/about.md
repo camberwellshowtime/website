@@ -5,7 +5,7 @@ Camberwell Showtime is an annual theatrical production, written, produced and pe
 
 Camberwell Showtime is fully written and directed by young people. Most script writers and composers are cast members, aged 11-26. All the songs and scripts are written by up to 80 show members. Through music and comedy, the scripts have tackled family-oriented themes including peer pressure, conformity, consumerism, substance abuse and developing sexuality.
 
-The show is open to young people who are active members of Scouting or Guiding and aged 11 plus by the beginning of Dress Rehearsals. Unlike other theatre groups, Camberwell Showtime accepts everyone who applies and does not audition on talent. Everyone gets a chance to perform on stage or work in one of the Technical Departments. Members of our Technical team must be aged 15 plus.
+The show is open to young people who are active members of Scouting or Guiding and aged 11 plus by Performance One. Unlike other theatre groups, Camberwell Showtime accepts everyone who applies and does not audition on talent. Everyone gets a chance to perform on stage or work in one of the Technical Departments. Members of our Technical team must be aged 15 plus.
 
 Camberwell Showtime - like Scouting and Guiding - is primarily an educational activity. The young people may focus on the fun, friendship and excitement, but the real goal is learning. Internally, and with outside assistance, both professional and volunteer, we continually strive to improve the skills of everybody involved.
 

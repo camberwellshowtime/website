@@ -327,6 +327,7 @@ layout: default
 
 <script src="//cdn.jsdelivr.net/npm/mailcheck@1.1.1/src/mailcheck.min.js" integrity="sha256-aAPNEz/OtzaNXAt4jf5P9xxwG8GvJ5owTS5BtGMELGs=" crossorigin="anonymous"></script>
 <script>
+fetch('https://forms.camberwellshowtime.com/', { mode: 'no-cors', cache: 'no-cache' }).catch((e) => null)
 var parsedUrl = new URL(window.location.href)
 parsedUrl.searchParams.forEach(function(v, k) {
   var elem = document.getElementById(k)

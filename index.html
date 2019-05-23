@@ -11,24 +11,6 @@ layout: default
   <a href='{{ site.data.general.tickets_url }}' style='font-size: 4rem; font-family: "Orbitron"; color: white'>Buy tickets!</a>
 </section>
 
-<section id='cast' class='cast-row'>
-  <div class='section-title'>
-    <h2>
-      Cast
-    </h2>
-  </div>
-  <div>
-    {% include_markdown cast_dates.md %}
-  </div>
-  <div>
-    {% include_markdown cast_rehearsing.md %}
-  </div>
-</section>
-
-<section class=join>
-  <a href='{{ site.data.general.tickets_url }}' style='font-size: 4rem; font-family: "Orbitron"; color: white'>Buy tickets!</a>
-</section>
-
 <section id='performance' class='performance-row'>
   <div class='section-title'>
     <h2>
@@ -40,6 +22,24 @@ layout: default
   </div>
   <div>
     {% include_markdown performance_venue.md %}
+  </div>
+</section>
+
+<section class=join>
+  <a href='{{ site.data.general.tickets_url }}' style='font-size: 4rem; font-family: "Orbitron"; color: white'>Buy tickets!</a>
+</section>
+
+<section id='cast' class='cast-row'>
+  <div class='section-title'>
+    <h2>
+      Cast
+    </h2>
+  </div>
+  <div>
+    {% include_markdown cast_dates.md %}
+  </div>
+  <div>
+    {% include_markdown cast_rehearsing.md %}
   </div>
 </section>
 

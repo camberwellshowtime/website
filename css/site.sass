@@ -107,6 +107,16 @@ $performance-color: #B1F8F2
   td
     padding-bottom: 0.25em
 
+$geelong-color: darken(#09648b, 10%)
+.geelong-row
+  @extend .row
+  color: white
+  border-top: 3px solid lighten($geelong-color, 40%)
+  border-bottom: 3px solid lighten($geelong-color, 40%)
+  background: $geelong-color
+  td
+    padding-bottom: 0.25em
+
 .drop-content
   max-width: 400px
   border: 2px solid white

@@ -15,3 +15,10 @@ performances:
     date: "2019-08-17T14:00:00+10:00"
   - description: ""
     date: "2019-08-17T20:00:00+10:00"
+geelong:
+  - description: ""
+    date: "2019-09-14T19:30:00+10:00"
+  - description: ""
+    date: "2019-09-15T11:00:00+10:00"
+  - description: ""
+    date: "2019-09-15T15:00:00+10:00"

@@ -14,15 +14,10 @@ title: Performance dates
     </td>
     <td>
       {{ performance.date | date: "%l%P" }}
+      {% if performance.description != '' and performance.description != nil %}
+        <i title="{{ performance.description }}">🎉</i>
+      {% endif %}
     </td>
   </tr>
-  {% if !!performance.description == true %}
-  <tr>
-    <td colspan=2>
-      <i>{{ performance.description }}</i>
-      {% comment %}broken{% endcomment %}
-    </td>
-  </tr>
-  {% endif %}
   {% endfor %}
 </table>

@@ -12,8 +12,8 @@ title: Performance dates
     <td style='padding-right: 3vw'>
       {{ performance.date | date: "%a %-d %B" }}
     </td>
-    <td>
-      {{ performance.date | date: "%l%P" }}
+    <td style='text-align: right'>
+      {{ performance.date | date: "%l:%M%P" }}
     </td>
   </tr>
   {% if !!performance.description == true %}

@@ -160,14 +160,14 @@ layout: default
       </div>
       <div class="pure-control-group">
         <label for="postcode">Postcode *</label>
-        <input type='text' id=postcode name=postcode required placeholder='3124' pattern='[0-9]{4}' title='Please enter 4 digits.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')">
+        <input inputmode="numeric" pattern="[0-9]*" type='text' id=postcode name=postcode required placeholder='3124' pattern='[0-9]{4}' title='Please enter 4 digits.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')">
       </div>
       <div class="pure-control-group">
         <label for="primary-phone">Primary phone number *</label>
-        <input type='text' id=primary-phone name=primary-phone required pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=0400000000>
+        <input inputmode="numeric" pattern="[0-9]*" type='text' id=primary-phone name=primary-phone required pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=0400000000>
       </div>
       <div class="pure-control-group">
-        <label for="alternative-phone">Alternative phone number</label>
+        <label inputmode="numeric" pattern="[0-9]*" for="alternative-phone">Alternative phone number</label>
         <input type='text' id=alternative-phone name=alternative-phone pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=90000000>
       </div>
       <div class="pure-control-group">
@@ -328,11 +328,11 @@ layout: default
         </div>
         <div class="pure-control-group">
           <label for="guardian1-primary-phone">Primary phone number *</label>
-          <input type='text' id=guardian1-primary-phone name=guardian1-primary-phone required pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=0400000000>
+          <input inputmode="numeric" pattern="[0-9]*" type='text' id=guardian1-primary-phone name=guardian1-primary-phone required pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=0400000000>
         </div>
         <div class="pure-control-group">
           <label for="guardian1-alternative-phone">Alternative phone number</label>
-          <input type='text' id=guardian1-alternative-phone name=guardian1-alternative-phone pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=90000000>
+          <input inputmode="numeric" pattern="[0-9]*" type='text' id=guardian1-alternative-phone name=guardian1-alternative-phone pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=90000000>
         </div>
         <div class="pure-control-group">
           <label for="guardian1-email">Email address *</label>
@@ -371,11 +371,11 @@ layout: default
         </div>
         <div class="pure-control-group">
           <label for="guardian2-primary-phone">Primary phone number *</label>
-          <input type='text' id=guardian2-primary-phone name=guardian2-primary-phone required pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=0400000000>
+          <input inputmode="numeric" pattern="[0-9]*" type='text' id=guardian2-primary-phone name=guardian2-primary-phone required pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=0400000000>
         </div>
         <div class="pure-control-group">
           <label for="guardian2-alternative-phone">Alternative phone number</label>
-          <input type='text' id=guardian2-alternative-phone name=guardian2-alternative-phone pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=90000000>
+          <input inputmode="numeric" pattern="[0-9]*" type='text' id=guardian2-alternative-phone name=guardian2-alternative-phone pattern='[0-9]{8,10}' title='Please enter 8 or 10 digits as your phone number.' oninvalid="this.setCustomValidity(this.title)" oninput="this.setCustomValidity('')" placeholder=90000000>
         </div>
         <div class="pure-control-group">
           <label for="guardian2-email">Email address *</label>

@@ -452,7 +452,7 @@ if(section) {
     document.querySelector('#section-other').value = section
   }
 }
-document.forms[0].section.oninput()
+document.forms[0]._section.oninput()
 var group = parsedUrl.searchParams.get('group')
 if(group) {
   var elem = document.querySelector('#_group [value="'+group+'"]')

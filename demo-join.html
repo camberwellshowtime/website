@@ -338,11 +338,11 @@ layout: default
           <label for="guardian1-email">Email address *</label>
           <input type='email' id='guardian1-email' name='guardian1-email' required placeholder='me@somewhere.com'>
         </div>
-        <div class="pure-control-group" style='display: flex'>
+        <div class="pure-control-group radio-flex">
           <label for="guardian1-address">Address *</label>
-          <div style='margin-left: 0.25em'>
+          <div class='dodgy-margin'>
             <input type='text' id=guardian1-address name=guardian1-address required placeholder='1/123 Some st, Camberwell, 3124'>
-            <br>
+            <br class='only-desktop'>
             <button id=guardian1-address-button type=button style='border: none; background: none; color: blue; text-decoration: underline; font-size: 90%; font-style: italic'>Copy from member</button>
             <script>
               document.getElementById('guardian1-address-button').onclick = function() {
@@ -463,7 +463,7 @@ if(group) {
     document.querySelector('#group-other').value = group
   }
 }
-document.forms[0].group.oninput()
+document.forms[0]._group.oninput()
 var gender = parsedUrl.searchParams.get('gender')
 if(gender) {
   var elem = document.querySelector('#gender-'+gender.toLowerCase())
@@ -575,6 +575,14 @@ $('form').on('submit', function(e) {
       borderRadius: '3px',
       padding: '1em',
     })
+  })
+  .fail(function(xhr) {
+    var message = jqXHR.responseText
+    try {
+      message = JSON.parse(jqXHR.responseText).errors.map(function(x) { return x.param + ': ' + x.msg }).join(', ')
+    } catch(e) {
+    }
+    alert('Failed to submit: ' + message)
   })
   .always(function() {
     window.submitting = false

@@ -184,7 +184,7 @@ layout: default
           {% endfor %}
         </select>
         <label for="other-group">Other group,<br class='form-desktop-only'> please specify</label>
-        <input type=text id=group-other name=group-other disabled placeholder='1st Windy Corner'>
+        <input type=text id=group-other name=group-other disabled required placeholder='1st Windy Corner'>
         <script>
           document.forms[0]._group.oninput = function(e) {
             document.forms[0]['group-other'].disabled = document.forms[0]._group.options[document.forms[0]._group.selectedIndex].value.toLowerCase() !== 'other'
@@ -576,7 +576,7 @@ $('form').on('submit', function(e) {
       padding: '1em',
     })
   })
-  .fail(function(xhr) {
+  .fail(function(jqXHR) {
     var message = jqXHR.responseText
     try {
       message = JSON.parse(jqXHR.responseText).errors.map(function(x) { return x.param + ': ' + x.msg }).join(', ')

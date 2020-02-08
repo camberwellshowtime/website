@@ -7,6 +7,12 @@ layout: default
   <div style='font-size: 60%;'>Is being written now!</div>
 </h1>
 
+{% if site.data.general.join_url %}
+<section class=join style='margin-top: 3em'>
+  <a href='{{ site.data.general.join_url }}' style='font-size: 4rem; font-family: "Orbitron"; color: white; border: 5px solid white; border-radius: 5px; padding: 0.25em; background: rgba(255,0,0,0.85)'>Join now!</a>
+</section>
+{% endif %}
+
 <section id='cast' class='cast-row'>
   <div class='section-title'>
     <h2>
@@ -20,6 +26,12 @@ layout: default
     {% include_markdown cast_rehearsing.md %}
   </div>
 </section>
+
+{% if site.data.general.join_url %}
+<section class=join style='margin-top: -13em'>
+  <a href='{{ site.data.general.join_url }}' style='font-size: 4rem; font-family: "Orbitron"; color: white; border: 5px solid white; border-radius: 5px; padding: 0.25em; background: rgba(255,0,0,0.85)'>Join now!</a>
+</section>
+{% endif %}
 
 <section id='performance' class='performance-row'>
   <div class='section-title'>
@@ -35,6 +47,12 @@ layout: default
   </div>
 </section>
 
+{% if site.data.general.join_url %}
+<section class=join style='margin-top: -13em'>
+  <a href='{{ site.data.general.join_url }}' style='font-size: 4rem; font-family: "Orbitron"; color: white; border: 5px solid white; border-radius: 5px; padding: 0.25em; background: rgba(255,0,0,0.85)'>Join now!</a>
+</section>
+{% endif %}
+
 <section id='about' class='about-row'>
   <div class='section-title'>
     <h2>
@@ -45,6 +63,12 @@ layout: default
     {% include_markdown about.md %}
   </article>
 </section>
+
+{% if site.data.general.join_url %}
+<section class=join style='margin-top: -13em'>
+  <a href='{{ site.data.general.join_url }}' style='font-size: 4rem; font-family: "Orbitron"; color: white; border: 5px solid white; border-radius: 5px; padding: 0.25em; background: rgba(255,0,0,0.85)'>Join now!</a>
+</section>
+{% endif %}
 
 <footer class='default-footer'>
   <nav class='container'>

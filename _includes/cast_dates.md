@@ -12,7 +12,7 @@ title: Cast dates
     <div style='margin-bottom: 1em'><span style='font-weight: bold'>4 dress rehearsals</span><br>2 to 6 August</div>
     <div style='margin-bottom: 1em'><span style='font-weight: bold'>8 performances</span><br>7 to 15 August</div>
     <i>* Not really an audition - everybody is accepted!</i>
-    <button style='border: none; text-decoration: underline; background: none' type='button' data-role='show-all-dates'>Show cast dates</button>
+    <button style='border: none; text-decoration: underline; background: none' type='button' data-role='show-all-dates'>Show exact dates</button>
   </div>
   <div data-role='all-dates' style='visibility: hidden'>
     <table style='min-width: 300px'>

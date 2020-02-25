@@ -7,11 +7,19 @@ layout: default
   <div style='font-size: 60%;'>Is being written now!</div>
 </h1>
 
-{% if site.data.general.join_url %}
-<section class=join style='margin-top: 3em'>
-  <a href='{{ site.data.general.join_url }}' style='font-family: "Orbitron"; color: white; border: 5px solid white; border-radius: 5px; padding: 0.25em; background: rgba(255,0,0,0.85)'>Join the 2020 show!</a>
-</section>
-{% endif %}
+<div id=main-video-row>
+  <div id=main-video-wrapper>
+    <div id=main-video-container>
+      <iframe id=main-video src="https://www.youtube-nocookie.com/embed/8byAGIcnbf0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+  {% if site.data.general.join_url %}
+  <section class=join>
+    <a href='{{ site.data.general.join_url }}' style='font-family: "Orbitron"; color: white; border: 5px solid white; border-radius: 5px; padding: 0.25em; background: rgba(255,0,0,0.85)'>Join the 2020 show!</a>
+  </section>
+  {% endif %}
+</div>
+
 
 <section id='cast' class='cast-row'>
   <div class='section-title'>

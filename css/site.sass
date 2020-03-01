@@ -1,14 +1,23 @@
 ---
 ---
 
-a, a:visited
+@font-face
+  font-family: guerrilla
+  src: url('../fonts/guerrilla-webfont.woff2') format('woff2'), url('../fonts/guerrilla-webfont.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+a, a:visited, button
   color: inherit
 
 body
   margin: 0
   padding: 0
-  font-family: sans-serif
+  font-family: ubuntu, sans-serif
   font-size: 18px
+  background: url(goal-big.jpg) no-repeat center center fixed
+  background-size: cover
+  color: white
 
 .container
   margin: 0
@@ -75,6 +84,7 @@ body
         font-size: 4rem
 
 #main-video-wrapper
+  margin: 2em auto 0
   max-width: 600px
   @media(min-width: 1000px)
     width: 100%
@@ -117,11 +127,13 @@ body
     a
       font-size: 4rem
 
-main > *
-  padding-left: 1rem
+//main > *
+//  padding-left: 1rem
 
 table
   border-collapse: collapse
+  @media(max-width: 899px)
+    margin: 0 auto
 td
   border-bottom: 1px solid rgba(255, 255, 255, 0.5)
 
@@ -275,11 +287,17 @@ a.material-icons
 .menu-button
   padding: 4px 3px 0
 
+button
+  cursor: pointer
+
 button.material-icons
   border: none
   background: inherit
   cursor: pointer
   color: white
+  &:active, &:focus
+    border: none
+    outline: none
 
 .button
   border: 3px solid darken(#6bccf5, 40%)
@@ -330,9 +348,165 @@ button.material-icons
   @media(min-width: 800px)
     max-width: 14em
 
-@import 'bg'
 @import 'mixins'
-@import 'form'
 
 *::placeholder
   color: rgba(0, 0, 0, 0.2)
+
+.bg
+  background: rgba(0, 0, 0, 0.5)
+.dark-bg
+  background: rgba(0, 0, 0, 0.6)
+
+h1
+  @extend .bg
+  display: inline-block
+  margin: 0 auto
+  text-align: center
+  font-family: guerrilla
+  text-transform: uppercase
+  font-size: 6em
+  padding: 0 0.25em
+  height: 1em
+  @media(max-width: 700px)
+    font-size: 3em
+  @media(max-width: 500px)
+    font-size: 2em
+
+.header-wrapper
+  text-align: center
+  small
+    @extend .bg
+    font-size: 1.5em
+    padding: 0.1em 0.5em
+    @media(max-width: 700px)
+      font-size: 1em
+    @media(max-width: 500px)
+      font-size: 0.75em
+  div
+    margin-bottom: 0.2em
+
+.wrapper
+  @media(min-width: 950px)
+    width: 75%
+    max-width: 1000px
+
+.countdown
+  text-align: center
+  font-size: 2em
+  margin: 1em auto 0
+  @media(max-width: 700px)
+    font-size: 1em
+  h2
+    text-transform: uppercase
+  ul
+    @extend .dark-bg
+    display: inline-block
+    margin: 0 auto
+    list-style-type: none
+    padding: 0 0.5em 1em
+  li
+    margin: 0 0 0.5em 0
+    display: inline-block
+    list-style-type: none
+    text-transform: uppercase
+    padding: 1em
+    @media(max-width: 1200px)
+      padding: 0.25em
+    span
+      display: block
+      line-height: 1.2em
+      height: 1.2em
+  a
+    font-size: 2em
+
+[data-role="expanded"], [data-role="expand"]
+  button
+    transition: transform 0.5s
+
+[data-role="expanded"] button
+  transform: rotateZ(-180deg)
+
+section
+  @extend .wrapper
+  @extend .dark-bg
+  margin: 4em auto 0
+  height: 4em
+  overflow: hidden
+  transition: height 1s
+  text-align: center
+  h2
+    margin: 0
+    font-size: 4em
+    font-family: guerrilla
+    text-transform: uppercase
+    cursor: pointer
+  @media(max-width: 1000px)
+    height: 2em
+    h2
+      font-size: 2em
+  button.material-icons
+    font-size: 1.25em
+    background: transparent
+    line-height: 0
+    position: relative
+    top: 0.25em
+  .column-wrapper
+    @media(min-width: 900px)
+      display: flex
+      justify-content: center
+
+#cast, #performance
+  .column-wrapper
+    > div:nth-of-type(2)
+      max-width: 20em
+      @media(max-width: 899px)
+        margin: 0 auto
+
+#performance
+  .column-wrapper
+    > div:nth-of-type(1)
+      margin: 0 2em 0 0
+      > div
+        align-items: center
+#about article
+  margin: 0 2em
+
+.footer
+  margin: 0
+  padding: 0
+  h2
+    font-size: 3em
+    margin-top: 0
+    @media(max-width: 899px)
+      font-size: 1.5em
+  ul
+    margin: 0
+    padding: 0
+  li
+    font-size: 1.5em
+    display: block
+    list-style-type: none
+    margin-bottom: 0.5em
+    @media(max-width: 899px)
+      font-size: 1em
+  nav
+    @extend .wrapper
+    margin: 10em auto 0
+    background: url(stuff.png)
+    background-position: center bottom
+    background-repeat: no-repeat
+    background-size: contain
+    height: 750px
+    text-align: center
+    @media(max-width: 900px)
+      height: 800px
+      max-width: 75%
+    @media(max-width: 1000px)
+      max-width: 65%
+      background-position: center calc(100% - 8em)
+    div
+      background: rgba(0, 0, 0, 0.6)
+      display: inline-block
+      padding: 1em 2em
+      margin: 0 auto

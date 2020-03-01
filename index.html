@@ -1,109 +1,114 @@
 ---
 layout: default
 ---
-<canvas id='canvas'></canvas>
-<h1 class='main-title'>
-  <div style='font-size: 40%; margin-bottom: 0.5em;'>Camberwell Showtime 2020:</div>
-  <div style='font-size: 60%;'>Is being written now!</div>
-</h1>
 
-<div id=main-video-row>
-  <div id=main-video-wrapper>
-    <div id=main-video-container>
-      <iframe id=main-video src="https://www.youtube-nocookie.com/embed/8byAGIcnbf0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
-  {% if site.data.general.join_url %}
-  <section class=join>
-    <a href='{{ site.data.general.join_url }}' style='font-family: "Orbitron"; color: white; border: 5px solid white; border-radius: 5px; padding: 0.25em; background: rgba(255,0,0,0.85)'>Join the 2020 show!</a>
-  </section>
-  {% endif %}
+<div class='header-wrapper'>
+  <div><small>The 55th Camberwell Showtime:</small></div>
+  <div><h1>Game of Phones</h1></div>
+  <div><small>Technology was supposed to make life easier!</small></div>
 </div>
 
+<div id=main-video-wrapper>
+  <div id=main-video-container>
+    <iframe id=main-video src="https://www.youtube-nocookie.com/embed/8byAGIcnbf0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
 
-<section id='cast' class='cast-row'>
-  <div class='section-title'>
-    <h2>
-      Cast
-    </h2>
-  </div>
-  <div>
-    {% include_markdown cast_dates.md %}
-  </div>
-  <div>
-    {% include_markdown cast_rehearsing.md %}
+<div class='wrapper countdown'>
+  <ul>
+    <h2>Applications close in:</h2>
+    <li><span id='days'></span>Days</li>
+    <li><span id='hours'></span>Hours</li>
+    <li><span id='minutes'></span>Minutes</li>
+    <li><span id='seconds'></span>Seconds</li>
+    <div><a style='font-weight: bold' href='{{ site.data.general.join_url }}'>Join now!</a></div>
+  </ul>
+</div>
+
+<script>
+  var second = 1e3, minute = second * 60, hour = minute * 60, day = hour * 24
+  var end = new Date('Apr 17, 2020 00:00:00').getTime()
+  setTimeout(function update() {
+    var distance = end - Date.now()
+    document.getElementById('days').innerText = Math.floor(distance / (day))
+    document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour))
+    document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute))
+    document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second)
+    setTimeout(update, second)
+  }, second)
+</script>
+
+<section id='cast'>
+  <h2 data-role=expand>
+    <button class='material-icons'>expand_more</button>Cast information
+  </h2>
+  <div class='column-wrapper'>
+    <div>
+      {% include_markdown cast_dates.md %}
+    </div>
+    <div>
+      {% include_markdown cast_rehearsing.md %}
+    </div>
   </div>
 </section>
 
-{% if site.data.general.join_url %}
-<section class=join>
-  <a href='{{ site.data.general.join_url }}' style='font-family: "Orbitron"; color: white; border: 5px solid white; border-radius: 5px; padding: 0.25em; background: rgba(255,0,0,0.85)'>Join now!</a>
-</section>
-{% endif %}
-
-<section id='performance' class='performance-row'>
-  <div class='section-title'>
-    <h2 style='text-align: center'>
-      Performances
-    </h2>
-  </div>
-  <div>
-    {% include_markdown performance_dates.md %}
-  </div>
-  <div>
-    {% include_markdown performance_venue.md %}
+<section id='performance'>
+  <h2 data-role=expand>
+    <button class='material-icons'>expand_more</button>Performances
+  </h2>
+  <div class='column-wrapper'>
+    <div>
+      {% include_markdown performance_dates.md %}
+    </div>
+    <div>
+      {% include_markdown performance_venue.md %}
+    </div>
   </div>
 </section>
 
-{% if site.data.general.join_url %}
-<section class=join>
-  <a href='{{ site.data.general.join_url }}' style='font-family: "Orbitron"; color: white; border: 5px solid white; border-radius: 5px; padding: 0.25em; background: rgba(255,0,0,0.85)'>Join now!</a>
-</section>
-{% endif %}
-
-<section id='about' class='about-row'>
-  <div class='section-title'>
-    <h2>
-      About
-    </h2>
-  </div>
+<section id='about'>
+  <h2 data-role=expand>
+    <button class='material-icons'>expand_more</button>About
+  </h2>
   <article>
     {% include_markdown about.md %}
   </article>
 </section>
 
-{% if site.data.general.join_url %}
-<section class=join>
-  <a href='{{ site.data.general.join_url }}' style='font-family: "Orbitron"; color: white; border: 5px solid white; border-radius: 5px; padding: 0.25em; background: rgba(255,0,0,0.85)'>Join now!</a>
-</section>
-{% endif %}
+<div class='wrapper dark-bg' style='margin: 4em auto; text-align: center;'>
+  <a style='font-weight: bold; font-size: 3em' href='{{ site.data.general.join_url }}'>Join now!</a>
+</div>
 
-<footer class='default-footer'>
+<footer class='footer'>
   <nav class='container'>
-    <div class='links' id='menu'>
-      <a href='#top'>Top</a>
-      <a href='#cast'>Cast details</a>
-      <a href='#performance'>Performances</a>
-      <a href='#about'>About</a>
-      <a href='#contact' class='only-mobile'>Contact</a>
-      <a href='https://www.facebook.com/CamberwellShowtime/'>Facebook</a>
-      {% if site.data.general.members_area_url %}
-      <a class='only-mobile' href='{{ site.data.general.members_area_url }}'>Member's area</a>
-      {% endif %}
-      <a href='#' class='only-mobile'>Close menu</a>
+    <div>
+      <h2>Get in touch:</h2>
+      <ul>
+        <li><a href='https://www.facebook.com/CamberwellShowtime/'>Join us on Facebook</a></li>
+        {% for contact in site.data.contacts.contacts %}
+        {% if contact.href %}
+        <li><a href='{{ contact.href }}'>{{ contact.label }}</a></li>
+        {% else %}
+        <li><a href='mailto:{{ contact.email }}'>Email our {{ contact.label }}</a></li>
+        {% endif %}
+        {% endfor %}
+      <ul>
     </div>
-    <div class='contact' id='contact'>
-      Contact:
-      {% for contact in site.data.contacts.contacts %}
-      {% if contact.href %}
-      <a href='{{ contact.href }}'>{{ contact.label }}</a>
-      {% else %}
-      <a href='mailto:{{ contact.email }}'>{{ contact.label }}</a>
-      {% endif %}
-      {% endfor %}
-    </div>
-    {% if site.data.general.members_area_url %}
-    <a class='only-desktop' href='{{ site.data.general.members_area_url }}'>Member's area</a>
-    {% endif %}
   </nav>
 </footer>
+
+<script>
+  document.body.addEventListener('click', function(e) {
+    var target = e.target.closest('[data-role]')
+    if(!target) return
+    var section = target.closest('section')
+    if(target.dataset.role === 'expand') {
+      target.dataset.role = 'expanded'
+      target.dataset.height = window.getComputedStyle(section).height
+      section.style.height = section.scrollHeight + 'px'
+    } else if(target.dataset.role === 'expanded') {
+      target.dataset.role = 'expand'
+      section.style.height = ''
+    }
+  })
+</script>

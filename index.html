@@ -145,10 +145,10 @@ layout: default
 
 <script>
   (function(window, document, undefined) {
-    var isJoin = document.body.classList.contains('show-modal-join')
     var forms = document.getElementsByTagName('form')
     for(var i = 0; i < forms.length; i++) forms[i].onsubmit = onsubmit
     function onsubmit(e) {
+      var isJoin = document.body.classList.contains('show-modal-join')
       var form = e.target
       e.preventDefault()
       var submitButton = form.querySelector('button:not([type=button])')

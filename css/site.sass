@@ -340,3 +340,31 @@ body.show-modal-submitted
   background: inherit
   padding: 0
   display: inline
+
+.loading
+  color: transparent !important
+  min-height: .8rem
+  pointer-events: none
+  position: relative
+  &::after
+    animation: loading .5s infinite linear
+    border: .1rem solid #5755d9
+    border-radius: 50%
+    border-right-color: transparent
+    border-top-color: transparent
+    content: ""
+    display: block
+    height: .8rem
+    left: 50%
+    margin-left: -.4rem
+    margin-top: -.4rem
+    position: absolute
+    top: 50%
+    width: .8rem
+    z-index: 1
+
+@keyframes loading
+  0%
+    transform: rotate(0)
+  100%
+    transform: rotate(360deg)

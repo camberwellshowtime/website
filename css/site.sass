@@ -35,8 +35,6 @@ body
   color: white
   font-weight: normal
   margin: 0 0 3rem
-  @media(min-width: 850px)
-    margin: 0 0 8rem
   @media(max-width: 600px)
   font-size: calc(20px + 8vw)
   padding: 0 0 0 1rem
@@ -143,6 +141,7 @@ $about-color: #FFFC99
   padding-bottom: 0
   article
     -moz-column-count: 3
+    column-count: 3
     column-width: 20em
     column-gap: 3em
     break-before: column
@@ -267,5 +266,77 @@ button.material-icons
 @import 'mixins'
 @import 'form'
 
+$phone: 'only screen and (max-width: 600px)'
+$not-phone: 'only screen and (min-width: 601px)'
+
+.no-field
+  display: none
+
 *::placeholder
   color: rgba(0, 0, 0, 0.2)
+
+form
+  display: grid
+  grid-template-columns: 10em auto
+  text-align: left
+  h3
+    margin: 0 0 1em
+  @media #{$phone}
+    font-size: 80%
+    overflow: auto
+
+.modal-overlay
+  display: none
+  background: rgba(247,248,249,.75)
+  cursor: default
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+.modal
+  font-size: 1.2rem
+  box-shadow: 0 0.2rem 0.5rem rgba(48,55,66,.3)
+  align-items: center
+  justify-content: center
+  padding: 1em
+  display: none
+  position: fixed
+  margin: auto
+  background: white
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  h3
+    font-size: 2em
+    border-bottom: 1px solid rgba(1,1,1,0.2)
+  button
+    font-size: 1.1em
+  @media #{$not-phone}
+    max-width: 30em
+    max-height: 23em
+
+@media #{$not-phone}
+  .modal[data-name="info"]
+    max-height: 16em
+
+body.show-modal
+  .modal-overlay
+    display: block
+body.show-modal-join
+  .modal[data-name="join"]
+    display: flex
+body.show-modal-info
+  .modal[data-name="info"]
+    display: flex
+body.show-modal-submitted
+  .modal[data-name="submitted"]
+    display: flex
+
+.like-link
+  text-decoration: underline
+  border: none
+  background: inherit
+  padding: 0
+  display: inline

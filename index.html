@@ -65,7 +65,7 @@ layout: default
 
 <div class='modal-overlay' onclick='document.body.classList.remove("show-modal", "show-modal-info", "show-modal-join", "show-modal-submitted")'></div>
 <div class='modal' data-name='join'>
-  <form name='join' method='POST' netlify netlify-honeypot='first-name' action='https://httpstat.us/200'>
+  <form name='join' method='POST' netlify netlify-honeypot='first-name'>
     <h3 style='grid-column: 1 / span 2; text-align: center;'>Join cast or crew</h3>
     <div class='no-field'>
       <label>Don’t fill this out if you're human: <input name='first-name' /></label>
@@ -125,7 +125,7 @@ layout: default
   </form>
 </div>
 <div class='modal' data-name='info'>
-  <form name='info' method='POST' netlify netlify-honeypot='first-name' action='https://httpstat.us/200'>
+  <form name='info' method='POST' netlify netlify-honeypot='first-name'>
     <h3 style='grid-column: 1 / span 2; text-align: center; margin: 0 0 1em'>Stay informed</h3>
     <div class='no-field'>
       <label>Don’t fill this out if you're human: <input name='first-name' /></label>

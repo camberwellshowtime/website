@@ -9,8 +9,8 @@ layout: default
 </h1>
 
 <div class='main-buttons'>
-  <button class=button onclick='document.body.classList.add("show-modal", "show-modal-join")'>Join our secret project cast/crew</button><br />
-  <button class=button onclick='document.body.classList.add("show-modal", "show-modal-info")'>Stay informed about our secret project</button><br />
+  <button class=button onclick='window.showJoin()'>Join our secret project cast/crew</button><br />
+  <button class=button onclick='window.showInfo()'>Stay informed about our secret project</button><br />
 </div>
 
 <section id='cast' class='cast-row'>
@@ -209,6 +209,14 @@ layout: default
           submitButton.disabled = false
         })
       }()
+    }
+    window.showJoin = function() {
+      document.body.classList.add("show-modal", "show-modal-join")
+      document.forms.join.elements[1].focus()
+    }
+    window.showInfo = function() {
+      document.body.classList.add("show-modal", "show-modal-info")
+      document.forms.info.elements[1].focus()
     }
   }(window, document))
 </script>

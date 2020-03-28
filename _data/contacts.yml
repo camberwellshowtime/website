@@ -1,7 +1,7 @@
 contacts:
-  - label: Director
-    email: director@camberwellshowtime.com
+  #- label: Director
+  #  email: director@camberwellshowtime.com
   - label: Producer
     email: producer@camberwellshowtime.com
-  - label: Marketing Team
-    email: marketing@camberwellshowtime.com
+  #- label: Lockdown
+  #  email: lockdown@camberwellshowtime.com

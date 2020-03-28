@@ -1,114 +1,223 @@
 ---
 layout: default
 ---
+<canvas id='canvas'></canvas>
+<h1 class='main-title'>
+  <div style='font-size: 60%; margin-bottom: 0.5em;'>Watch This Space.</div>
+  <div style='font-size: 40%; margin-bottom: 0.5em;'>Camberwell Showtime 2020:</div>
+  <div style='font-size: 50%;'>Is in LOCKDOWN.</div>
+</h1>
 
-<div class='header-wrapper'>
-  <div><small>The 56th Camberwell Showtime:</small></div>
-  <div><h1>Game of Phones</h1></div>
-  <div><small>Technology was supposed to make life easier!</small></div>
+<div class='main-buttons'>
+  <button class=button onclick='window.showJoin()'>Join our secret project cast/crew</button><br />
+  <button class=button onclick='window.showInfo()'>Stay informed about our secret project</button><br />
 </div>
 
-<div id=main-video-wrapper>
-  <div id=main-video-container>
-    <iframe id=main-video src="https://www.youtube-nocookie.com/embed/8byAGIcnbf0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<section id='cast' class='cast-row'>
+  <div class='section-title'>
+    <h2>
+      Lockdown
+    </h2>
   </div>
-</div>
-
-<div class='wrapper countdown'>
-  <ul>
-    <h2>Applications close in:</h2>
-    <li><span id='days'></span>Days</li>
-    <li><span id='hours'></span>Hours</li>
-    <li><span id='minutes'></span>Minutes</li>
-    <li><span id='seconds'></span>Seconds</li>
-    <div><a style='font-weight: bold' href='{{ site.data.general.join_url }}'>Join now!</a></div>
-  </ul>
-</div>
-
-<script>
-  var second = 1e3, minute = second * 60, hour = minute * 60, day = hour * 24
-  var end = new Date('Apr 17, 2020 00:00:00').getTime()
-  setTimeout(function update() {
-    var distance = end - Date.now()
-    document.getElementById('days').innerText = Math.floor(distance / (day))
-    document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour))
-    document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute))
-    document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second)
-    setTimeout(update, second)
-  }, second)
-</script>
-
-<section id='cast'>
-  <h2 data-role=expand>
-    <button class='material-icons'>expand_more</button>Cast information
-  </h2>
-  <div class='column-wrapper'>
-    <div>
-      {% include_markdown cast_dates.md %}
-    </div>
-    <div>
-      {% include_markdown cast_rehearsing.md %}
-    </div>
+  <div>
+    {% include_markdown lockdown.md %}
   </div>
 </section>
 
-<section id='performance'>
-  <h2 data-role=expand>
-    <button class='material-icons'>expand_more</button>Performances
-  </h2>
-  <div class='column-wrapper'>
-    <div>
-      {% include_markdown performance_dates.md %}
-    </div>
-    <div>
-      {% include_markdown performance_venue.md %}
-    </div>
+<section id='about' class='about-row'>
+  <div class='section-title'>
+    <h2>
+      About
+    </h2>
   </div>
-</section>
-
-<section id='about'>
-  <h2 data-role=expand>
-    <button class='material-icons'>expand_more</button>About
-  </h2>
   <article>
     {% include_markdown about.md %}
   </article>
 </section>
 
-<div class='wrapper dark-bg' style='margin: 4em auto; text-align: center;'>
-  <a style='font-weight: bold; font-size: 3em' href='{{ site.data.general.join_url }}'>Join now!</a>
-</div>
-
-<footer class='footer'>
+<footer class='default-footer'>
   <nav class='container'>
-    <div>
-      <h2>Get in touch:</h2>
-      <ul>
-        <li><a href='https://www.facebook.com/CamberwellShowtime/'>Join us on Facebook</a></li>
-        {% for contact in site.data.contacts.contacts %}
-        {% if contact.href %}
-        <li><a href='{{ contact.href }}'>{{ contact.label }}</a></li>
-        {% else %}
-        <li><a href='mailto:{{ contact.email }}'>Email our {{ contact.label }}</a></li>
-        {% endif %}
-        {% endfor %}
-      <ul>
+    <div class='links' id='menu'>
+      <a href='#top'>Top</a>
+      <a href='#about'>About</a>
+      <a href='#contact' class='only-mobile'>Contact</a>
+      <a href='https://www.facebook.com/CamberwellShowtime/'>Facebook</a>
+      <a href='https://www.instagram.com/camberwellshowtime/'>Instagram</a>
+      {% if site.data.general.members_area_url %}
+      <a class='only-mobile' href='{{ site.data.general.members_area_url }}'>Member's area</a>
+      {% endif %}
+      <a href='#' class='only-mobile'>Close menu</a>
     </div>
+    <div class='contact' id='contact'>
+      Contact:
+      {% for contact in site.data.contacts.contacts %}
+      {% if contact.href %}
+      <a href='{{ contact.href }}'>{{ contact.label }}</a>
+      {% else %}
+      <a href='mailto:{{ contact.email }}'>{{ contact.label }}</a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% if site.data.general.members_area_url %}
+    <a class='only-desktop' href='{{ site.data.general.members_area_url }}'>Member's area</a>
+    {% endif %}
   </nav>
 </footer>
 
+<div class='modal-overlay' onclick='document.body.classList.remove("show-modal", "show-modal-info", "show-modal-join", "show-modal-submitted")'></div>
+<div class='modal' data-name='join'>
+  <form name='join' method='POST' netlify netlify-honeypot='first-name'>
+    <h3 style='grid-column: 1 / span 2; text-align: center;'>Join cast or crew</h3>
+    <div class='no-field'>
+      <label>Don’t fill this out if you're human: <input name='first-name' /></label>
+    </div>
+    <label class='right pad' for='preferred-name'>Preferred name: *</label><div><input required name='preferred-name' id='preferred-name' placeholder='Neville' /></div>
+    <label class='right pad' for='last-name'>Last name: *</label><div><input required name='last-name' id='last-name' placeholder='Kidd' /></div>
+    <label class='right pad' for='email'>Email address: *</label><div><input required name='email' id='email' placeholder='neville@kidd.com' type='email' /></div>
+    <label for="_group">Group *</label>
+    <input type=hidden name=group id=group />
+    <select id=_group name=_group required>
+      {% for group in site.data.groups %}
+        {% assign value = group.value | default: group.label %}
+        <option value='{{ value }}'>{{ group.label }}</option>
+      {% endfor %}
+    </select>
+    <label for="_group-other">Other group,<br class='form-desktop-only'> please specify</label>
+    <div style='display: grid; align-items: center; justify-content: center;'><input type=text id=_group-other name=_group-other disabled required placeholder='1st Windy Corner'></div>
+    <script>
+      document.getElementById('_group').oninput = function(e) {
+        document.getElementById('_group-other').disabled = document.getElementById('_group').options[document.getElementById('_group').selectedIndex].value.toLowerCase() !== 'other'
+        if(document.getElementById('_group').options[document.getElementById('_group').selectedIndex].value.toLowerCase() === 'other') {
+          document.getElementById('group').value = document.getElementById('_group-other').value
+        } else {
+          document.getElementById('group').value = document.getElementById('_group').options[document.getElementById('_group').selectedIndex].value
+        }
+      }
+      document.getElementById('_group-other').oninput = function(e) {
+        document.getElementById('group').value = document.getElementById('_group-other').value
+      }
+      document.getElementById('_group').oninput()
+    </script>
+    <input type=hidden name=section id=section />
+    <label for="_section">Section *</label>
+    <select id=_section name=_section required>
+      {% for section in site.data.sections %}
+        {% assign value = section.value | default: section.label %}
+        <option value='{{ value }}'>{{ section.label }}</option>
+      {% endfor %}
+    </select>
+    <label for="_section-other">Other section,<br class='form-desktop-only'> please specify</label>
+    <div style='display: grid; align-items: center; justify-content: center;'><input type=text id=_section-other name=_section-other disabled required></div>
+    <script>
+      document.getElementById('_section').oninput = function(e) {
+        document.getElementById('_section-other').disabled = document.getElementById('_section').options[document.getElementById('_section').selectedIndex].value.toLowerCase() !== 'other'
+        if(document.getElementById('_section').options[document.getElementById('_section').selectedIndex].value.toLowerCase() === 'other') {
+          document.getElementById('section').value = document.getElementById('_section-other').value
+        } else {
+          document.getElementById('section').value = document.getElementById('_section').options[document.getElementById('_section').selectedIndex].value
+        }
+      }
+      document.getElementById('_section-other').oninput = function(e) {
+        document.getElementById('section').value = document.getElementById('_section-other').value
+      }
+      document.getElementById('_section').oninput()
+    </script>
+    <div style='grid-column: 1 / span 2; text-align: right'><button style='margin-right: 1em'>Submit</button><button type='button' onclick='document.body.classList.remove("show-modal", "show-modal-info", "show-modal-join", "show-modal-submitted")'>Close</button></div>
+  </form>
+</div>
+<div class='modal' data-name='info'>
+  <form name='info' method='POST' netlify netlify-honeypot='first-name'>
+    <h3 style='grid-column: 1 / span 2; text-align: center; margin: 0 0 1em'>Stay informed</h3>
+    <div class='no-field'>
+      <label>Don’t fill this out if you're human: <input name='first-name' /></label>
+    </div>
+    <label class='right pad' for='name'>Full name: *</label><div><input required name='name' id='name' placeholder='Neville' /></div>
+    <label class='right pad' for='info-email'>Email address: *</label><div><input required name='email' id='info-email' placeholder='neville@kidd.com' type='email' /></div>
+    <div style='grid-column: 1 / span 2; text-align: right; margin-top: 0.5em'><button style='margin-right: 1em'>Submit</button><button type='button' onclick='document.body.classList.remove("show-modal", "show-modal-info", "show-modal-join", "show-modal-submitted")'>Close</button></div>
+  </form>
+</div>
+
+<div class='modal' data-name='submitted'>
+  <div>
+    <div id=message></div>
+    <div style='grid-column: 1 / span 2; text-align: right'><button type='button' onclick='document.body.classList.remove("show-modal", "show-modal-info", "show-modal-join", "show-modal-submitted")'>Close</button></div>
+  </div>
+</div>
+
 <script>
-  document.body.addEventListener('click', function(e) {
-    var target = e.target.closest('[data-role]')
-    if(!target) return
-    var section = target.closest('section')
-    if(target.dataset.role === 'expand') {
-      target.dataset.role = 'expanded'
-      target.dataset.height = window.getComputedStyle(section).height
-      section.style.height = section.scrollHeight + 'px'
-    } else if(target.dataset.role === 'expanded') {
-      target.dataset.role = 'expand'
-      section.style.height = ''
+  (function(window, document, undefined) {
+    var forms = document.getElementsByTagName('form')
+    for(var i = 0; i < forms.length; i++) forms[i].onsubmit = onsubmit
+    function onsubmit(e) {
+      var isJoin = document.body.classList.contains('show-modal-join')
+      var form = e.target
+      e.preventDefault()
+      var submitButton = form.querySelector('button:not([type=button])')
+      submitButton.classList.add('loading')
+      submitButton.disabled = true
+      var failCount = 0
+      !function doFetch() {
+        failCount += 1
+        var email = Array.from(form.elements).find(function(elem) { return elem.name === 'email' }).value
+        var data = Array.from(form.elements)
+            .filter(function(elem) {
+              return !!elem.name && elem.name !== 'first-name'
+            })
+            .filter(function(elem) {
+              return !/^_/.test(elem.name)
+            })
+            .reduce(function(arr, elem) {
+              return elem.type !== 'radio' || elem.checked ? arr.concat(encodeURIComponent(elem.name) + '=' + encodeURIComponent(elem.value)) : arr
+            }, []).join('&')
+        fetch(form.action, {
+          method: 'post',
+          body: data,
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
+        .then(function(response) {
+          var ourEmail = isJoin ? 'lockdown-member@camberwellshowtime.com' : 'lockdown-info@camberwellshowtime.com'
+          if(response.ok || failCount >= 3) {
+            document.body.classList.remove('show-modal-info', 'show-modal-join')
+            document.body.classList.add('show-modal-submitted')
+            if('localStorage' in window) {
+              localStorage.setItem('submitted', JSON.stringify({ isJoin: isJoin, date: new Date(), data: data }))
+            }
+            var message = document.getElementById('message')
+            if(response.ok) {
+              message.innerText = isJoin
+                ? ('Thanks for joining our cast and crew team! We\'ll be in contact with you at ' + email + ' soon.')
+                : ('We\'ll keep you up to date with our secret plans via your email (' + email + ') soon.')
+                  message.innerHTML += '<br><br>'
+              message.innerHTML += 'Feel free to reach out to <a href="mailto:' + ourEmail + '">' + ourEmail + '</a>.'
+            } else {
+              response.text().then(function(text) {
+                message.innerHTML = '<h3 style="margin-top: 0">Failed to submit</h3>Failed to submit form: ' + text + '.<br/><br/>Please email us at <br><a href="mailto:' + ourEmail + '">' + ourEmail + '</a><br/> instead.<br/>'
+              })
+            }
+            var computed = window.getComputedStyle(form)
+            message.style.height = computed.height
+            message.style.margin = computed.margin
+            message.style.fontSize = '1.5rem'
+            message.style.textAlign = 'center'
+          } else {
+            return doFetch()
+          }
+        })
+        .finally(function() {
+          submitButton.classList.remove('loading')
+          submitButton.disabled = false
+        })
+      }()
     }
-  })
+    window.showJoin = function() {
+      document.body.classList.add("show-modal", "show-modal-join")
+      document.forms.join.elements[1].focus()
+    }
+    window.showInfo = function() {
+      document.body.classList.add("show-modal", "show-modal-info")
+      document.forms.info.elements[1].focus()
+    }
+  }(window, document))
 </script>

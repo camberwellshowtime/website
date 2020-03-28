@@ -176,7 +176,7 @@ layout: default
           }
         })
         .then(function(response) {
-          var email = isJoin ? 'lockdown-member@camberwellshowtime.com' : 'lockdown-info@camberwellshowtime.com'
+          var ourEmail = isJoin ? 'lockdown-member@camberwellshowtime.com' : 'lockdown-info@camberwellshowtime.com'
           if(response.ok || failCount >= 3) {
             document.body.classList.remove('show-modal-info', 'show-modal-join')
             document.body.classList.add('show-modal-submitted')
@@ -189,10 +189,10 @@ layout: default
                 ? ('Thanks for joining our cast and crew team! We\'ll be in contact with you at ' + email + ' soon.')
                 : ('We\'ll keep you up to date with our secret plans via your email (' + email + ') soon.')
                   message.innerHTML += '<br><br>'
-              message.innerHTML += 'Feel free to reach out to <a href="mailto:' + email + '">' + email + '</a>.'
+              message.innerHTML += 'Feel free to reach out to <a href="mailto:' + ourEmail + '">' + ourEmail + '</a>.'
             } else {
               response.text().then(function(text) {
-                message.innerHTML = '<h3 style="margin-top: 0">Failed to submit</h3>Failed to submit form: ' + text + '.<br/><br/>Please email us at <br><a href="mailto:' + email + '">' + email + '</a><br/> instead.<br/>'
+                message.innerHTML = '<h3 style="margin-top: 0">Failed to submit</h3>Failed to submit form: ' + text + '.<br/><br/>Please email us at <br><a href="mailto:' + ourEmail + '">' + ourEmail + '</a><br/> instead.<br/>'
               })
             }
             var computed = window.getComputedStyle(form)

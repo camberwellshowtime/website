@@ -8,13 +8,26 @@ layout: default
 </h1>
 
 <section id='cast' class='cast-row'>
-  <div class='section-title'>
-    <h2>
-      2021 Show
-    </h2>
+  <h2 style='width: 9em'>
+    Cast information
+  </h2>
+  <div>
+    {% include_markdown cast_dates.md %}
   </div>
   <div>
-    {% include_markdown 2021.md %}
+    {% include_markdown cast_rehearsing.md %}
+  </div>
+</section>
+
+<section id='performance' class='performance-row'>
+  <h2 style='width: 8em'>
+    Performances
+  </h2>
+  <div>
+    {% include_markdown performance_dates.md %}
+  </div>
+  <div>
+    {% include_markdown performance_venue.md %}
   </div>
 </section>
 

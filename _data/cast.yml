@@ -1,31 +1,33 @@
 cast:
-  - date: 2/3 May
+  - date: 8 February
+    description: Applications open
+  - date: 1/2 May
     description: Auditions*
-  - date: 17 May
+  - date: 16 May (afternoon)
     description: Script collection
-  - date: 24 May
+  - date: 23 May
     description: Rehearsal 1
-  - date: 31 May
+  - date: 30 May
     description: Rehearsal 2
-  - date: 14 June
+  - date: 6 June
     description: Rehearsal 3
-  - date: 20-21 June
+  - date: 19-20 June
     description: Rehearsal 4
-  - date: 27 June
+  - date: 26 June
     description: Fundraiser
-  - date: 28 June
+  - date: 27 June
     description: Rehearsal 5
-  - date: 12 July
+  - date: 11 July
     description: Rehearsal 6
-  - date: 19 July
+  - date: 18 July
     description: Rehearsal 7
-  - date: 25-26 July
+  - date: 24-25 July
     description: Rehearsal 8
-  - date: 2 August
+  - date: 1 August
     description: Dress rehearsal 1
-  - date: 4 August
+  - date: 3 August
     description: Dress rehearsal 2
-  - date: 5 August
+  - date: 4 August
     description: Dress rehearsal 3
-  - date: 6 August
+  - date: 5 August
     description: Dress rehearsal 4

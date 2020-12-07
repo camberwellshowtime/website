@@ -8,10 +8,10 @@ title: Cast dates
 <div style='position: relative'>
   <div data-role='short-dates' style='min-width: 300px; position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: flex; flex-direction: column; text-align: center'>
     <div style='margin-bottom: 1em'><span style='font-weight: bold'>Applications open 🎉</span><br>8 February</div>
-    <div style='margin-bottom: 1em'><span style='font-weight: bold'>Get to know you "audition"*</span><br>2 or 3 May</div>
-    <div style='margin-bottom: 1em'><span style='font-weight: bold'>8 rehearsals</span><br>24 May to 26 July</div>
-    <div style='margin-bottom: 1em'><span style='font-weight: bold'>4 dress rehearsals</span><br>2 to 6 August</div>
-    <div style='margin-bottom: 1em'><span style='font-weight: bold'>8 performances</span><br>7 to 15 August</div>
+    <div style='margin-bottom: 1em'><span style='font-weight: bold'>Get to know you "audition"*</span><br>1 or 2 May</div>
+    <div style='margin-bottom: 1em'><span style='font-weight: bold'>8 rehearsals</span><br>23 May to 25 July</div>
+    <div style='margin-bottom: 1em'><span style='font-weight: bold'>4 dress rehearsals</span><br>1 to 5 August</div>
+    <div style='margin-bottom: 1em'><span style='font-weight: bold'>8 performances</span><br>6 to 14 August</div>
     <i>* Not really an audition - everybody is accepted!</i>
     <button style='margin-top: 1em; border: none; text-decoration: underline; background: none' type='button' data-role='show-all-dates'>Show exact dates</button>
   </div>

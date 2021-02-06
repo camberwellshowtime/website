@@ -1,6 +1,16 @@
 ---
 ---
 
+@font-face
+  font-family: guerrilla
+  src: url('../fonts/GUERRILLANormal.eot')
+  src: url('../fonts/GUERRILLANormal.eot') format("embedded-opentype"), url('../fonts/GUERRILLANormal.woff2') format("woff2"), url('../fonts/GUERRILLANormal.woff') format("woff"), url('../fonts/GUERRILLANormal.ttf') format("truetype"), url('../fonts/GUERRILLANormal.svg#GUERRILLANormal') format("svg")
+
+@font-face
+  font-family: shlop
+  src: url('../fonts/SHLOP.eot')
+  src: url('../fonts/SHLOP.eot') format("embedded-opentype"), url('../fonts/SHLOP.woff2') format("woff2"), url('../fonts/SHLOP.woff') format("woff"), url('../fonts/SHLOP.ttf') format("truetype"), url('../fonts/SHLOP.svg#SHLOP') format("svg")
+
 a, a:visited
   color: inherit
 
@@ -29,15 +39,28 @@ body
   display: block
 
 .main-title
-  font-family: 'Orbitron'
+  font-family: 'sans-serif'
   font-size: calc(40px + 8vw)
   text-shadow: 1px 1px 1px #999, 2px 2px 1px #999
   color: white
   font-weight: normal
   margin: 0 0 3rem
-  @media(max-width: 600px)
   font-size: calc(20px + 8vw)
   padding: 0 0 0 1rem
+  .subtitle-1, .subtitle-2, .subtitle-4
+    margin-bottom: 0.5em
+  .subtitle-3
+    font-size: 50%
+  @media(max-width: 600px)
+    text-align: center
+    .subtitle-1, .subtitle-3
+      margin-bottom: 1em
+    .subtitle-3
+      font-size: 75%
+    .subtitle-4
+      margin-bottom: 1.5em
+    .subtitle-5, .subtitle-7
+      font-size: 70%
 
 .join
   margin: 0 0 3em
@@ -47,6 +70,13 @@ body
     margin: 0em 0 4em
     @media(min-width: 850px)
       margin: -5em 0 4em
+
+.join-row
+  color: white
+  margin: 1em 1em 1.5em 0.25em
+  font-size: 2em
+  @media(max-width: 849px)
+    text-align: center
 
 main > *
   padding-left: 1rem
@@ -64,8 +94,8 @@ td
   max-width: 100vw
   margin: 0
   margin-bottom: 3rem
-  @media(min-width: 850px)
-    margin-bottom: 20rem
+  //@media(min-width: 850px)
+  //  margin-bottom: 20rem
   padding-top: 1rem
   padding-bottom: 1rem
   //@media(min-width: 801px)
@@ -104,6 +134,9 @@ $performance-color: #B1F8F2
   background: $performance-color
   td
     padding-bottom: 0.25em
+  h2
+    @media(min-width: 750px)
+      width: 8em
 
 $geelong-color: #1C3C63
 .geelong-row
@@ -130,6 +163,9 @@ $cast-color: #D7E8BA
   color: black
   td
     border-bottom: 1px solid rgba(0, 0, 0, 0.5)
+  h2
+    @media(min-width: 750px)
+      width: 9em
 
 $about-color: #FFFC99
 

@@ -1,15 +1,23 @@
 ---
 layout: default
 ---
-<h1 class='main-title'>
-  <div class='subtitle-1' style='font-size: 40%'>Camberwell Showtime 2021</div>
-  <div class='subtitle-2 only-desktop' style='font-size: 40%;'><span style='font-style: italic'>It's a double feature:</span> <span style='font-family: guerrilla'>Game of Phones</span> <span style='font-style: italic'>AND</span> <span style='font-family: shlop'>The House</span></div>
-  <div class='subtitle-3'><a href='{{ site.data.general.join_url }}'>Join now!</a></div>
+<div class='main-title'>
+  <h1>
+    <div class='subtitle-1' style='font-size: 40%'>Camberwell Showtime 2021</div>
+    <div class='subtitle-2 only-desktop' style='font-size: 40%;'><span style='font-style: italic'>It's a double feature:</span> <span style='font-family: guerrilla'>Game of Phones</span> <span style='font-style: italic'>AND</span> <span style='font-family: shlop'>The House</span></div>
+  </h1>
+  <div class='only-desktop' style='max-width: 60rem'>
+    {% include video.html %}
+  </div>
   <div class='subtitle-4 only-mobile' style='font-size: 40%; font-style: italic'>It's a double feature!</div>
   <div class='subtitle-5 only-mobile' style='font-family: guerrilla'>Game of Phones</div>
   <div class='subtitle-6 only-mobile' style='font-size: 40%; margin: 0.5em 0;'>AND</div>
   <div class='subtitle-7 only-mobile' style='font-family: shlop'>The House</div>
-</h1>
+  <div class='only-mobile' style='margin-top: 1em'>
+    {% include video.html %}
+  </div>
+  <div class='subtitle-3' style='margin-top: 0.5em'><a href='{{ site.data.general.join_url }}'>Join now!</a></div>
+</div>
 
 <section id='cast' class='cast-row'>
   <h2>
@@ -49,6 +57,8 @@ layout: default
     {% include_markdown about.md %}
   </article>
 </section>
+
+<div class='join-row only-mobile'><a href='{{ site.data.general.join_url }}'>Join now!</a></div>
 
 <footer class='default-footer'>
   <nav class='container'>

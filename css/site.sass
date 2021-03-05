@@ -40,17 +40,21 @@ body
 
 .main-title
   font-family: 'sans-serif'
-  font-size: calc(40px + 8vw)
   text-shadow: 1px 1px 1px #999, 2px 2px 1px #999
   color: white
-  font-weight: normal
   margin: 0 0 3rem
   font-size: calc(20px + 8vw)
   padding: 0 0 0 1rem
+  h1
+    font-weight: normal
+    font-size: inherit
+    margin: 0
   .subtitle-1, .subtitle-2, .subtitle-4
     margin-bottom: 0.5em
   .subtitle-3
     font-size: 50%
+  @media(max-width: 1000px)
+    padding: 0 1rem
   @media(max-width: 600px)
     text-align: center
     .subtitle-1, .subtitle-3

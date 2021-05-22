@@ -3,51 +3,99 @@ layout: default
 ---
 <div class='main-title'>
   <h1>
-    <div class='subtitle-1' style='font-size: 40%'>Camberwell Showtime 2021</div>
-    <div class='subtitle-2 only-desktop' style='font-size: 40%;'><span style='font-style: italic'>It's a double feature:</span> <span style='font-family: guerrilla'>Game of Phones</span> <span style='font-style: italic'>AND</span> <span style='font-family: shlop'>The House</span></div>
-  <div class='subtitle-2 only-desktop' style='font-size: 20%; margin-bottom: 1em'>Tickets on sale Sunday May 23!</div>
+    <div class='subtitle-4' style='font-size: 40%'>CST 2021 - Double Feature:</div>
+    <div id=gof-title class='subtitle-5' style='font-family: guerrilla'>Game of Phones</div>
+    <script>
+      (function() {
+        var elem = document.getElementById('gof-title'),
+          text = elem.innerText,
+          saturation = 96,
+          lightness = 63,
+          textLength = text.length,
+          html = '',
+          style = '.the-house #gof-title span { color: inherit !important }'
+        for(var i = 0; i < textLength; i++) {
+          html += '<span>' + text[i] + '</span>';
+          style += '#gof-title span:nth-of-type(' + (i + 1) + ') { color:hsl(' + Math.round((360 * i / textLength)) + ',' + saturation + '%, ' + lightness + '%) }'
+        }
+        elem.innerHTML = html
+        var styleElem = document.createElement('style')
+        styleElem.innerHTML = style
+        document.head.appendChild(styleElem)
+      }())
+    </script>
+    <div class='subtitle-6' style='font-size: 40%; margin: 0.5em 0; position: relative'>
+      AND
+      <div id=gof-logo class=only-desktop></div>
+      <div id=house-logo class=only-desktop></div>
+    </div>
+    <style>
+      #gof-logo, #house-logo {
+        transform: translateX(-33vw);
+        top: -3vh;
+        left: 50%;
+        position: absolute;
+        background-image: url(img/Phone_B.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 15vw;
+        padding-bottom: 20%;
+      }
+      #house-logo {
+        transform: translateX(20vw);
+        background-image: url(img/House_B.png);
+      }
+      .game-of-phones #house-logo {
+        filter: grayscale(100%);
+      }
+      .the-house #gof-logo {
+        filter: grayscale(100%);
+      }
+    </style>
+    <div id=house-title class='subtitle-7' style='font-family: shlop;'>The House</div>
+    <div class='subtitle-8' style='margin-top: 2rem; font-size: 34%'>One time only - two shows back to back!</div>
+    <!--<div class='subtitle-8 only-mobile' style='font-size: 50%; margin-top: 1em'>Tickets on sale Sunday May 23!</div>-->
+    <div class='subtitle-1' style='margin-top: 1em; font-size: 40%;'>Presented by Camberwell Showtime</div>
+    <script>
+      var gof = document.getElementById('gof-title'), gofImage = document.getElementById('gof-logo'),
+        house = document.getElementById('house-title'), houseImage = document.getElementById('house-logo')
+
+      gof.style.cursor = gofImage.style.cursor = house.style.cursor = houseImage.style.cursor = 'pointer'
+      document.body.addEventListener('click', function(e) {
+        if(e.target === gof || e.target.parentElement === gof || e.target === gofImage) {
+          document.body.classList.remove('the-house')
+          document.body.classList.toggle('game-of-phones')
+        } else if(e.target === house || e.target === houseImage) {
+          document.body.classList.remove('game-of-phones')
+          document.body.classList.toggle('the-house')
+        } else {
+          document.body.classList.remove('the-house')
+          document.body.classList.remove('game-of-phones')
+        }
+      })
+    </script>
   </h1>
-  <div class='only-desktop' style='max-width: 60rem'>
-    {% include video.html %}
-  </div>
-  <div class='subtitle-4 only-mobile' style='font-size: 40%; font-style: italic'>It's a double feature!</div>
-  <div class='subtitle-5 only-mobile' style='font-family: guerrilla'>Game of Phones</div>
-  <div class='subtitle-6 only-mobile' style='font-size: 40%; margin: 0.5em 0;'>AND</div>
-  <div class='subtitle-7 only-mobile' style='font-family: shlop'>The House</div>
-  <div class='subtitle-8 only-mobile' style='font-size: 50%; margin-top: 2em'>Tickets on sale Sunday May 23!</div>
-  <div class='only-mobile' style='margin-top: 1em'>
-    {% include video.html %}
-  </div>
-  <div class='subtitle-3' style='margin-top: 0.5em'><a href='{{ site.data.general.join_url }}'>Join now!</a></div>
 </div>
 
-<section id='cast' class='cast-row'>
-  <h2>
-    Cast information
-  </h2>
-  <div>
-    {% include_markdown cast_dates.md %}
-  </div>
-  <div>
-    {% include_markdown cast_rehearsing.md %}
-  </div>
-</section>
+<div style='margin-top: 0.5em' class='join-row'><a style='font-weight: bold' href='{{ site.data.general.tickets_url }}'>Buy tickets!</a></div>
 
-<div class='join-row'><a href='{{ site.data.general.join_url }}'>Join now!</a></div>
+<p style='color: white; font-style: italic'>Applications for cast have now closed, applications for tech and other departments are still open: <a href='{{ site.data.general.join_url }}'>Join now</a></p>
 
 <section id='performance' class='performance-row'>
   <h2>
     Performances
   </h2>
   <div>
-    {% include_markdown performance_dates.md %}
-  </div>
-  <div>
-    {% include_markdown performance_venue.md %}
+    <div>
+      {% include_markdown performance_dates.md %}
+    </div>
+    <div>
+      {% include_markdown performance_venue.md %}
+    </div>
   </div>
 </section>
 
-<div class='join-row'><a href='{{ site.data.general.join_url }}'>Join now!</a></div>
+<div class='join-row'><a href='{{ site.data.general.tickets_url }}'>Buy tickets</a></div>
 
 <section id='about' class='about-row'>
   <div class='section-title'>
@@ -60,24 +108,20 @@ layout: default
   </article>
 </section>
 
-<div class='join-row only-mobile'><a href='{{ site.data.general.join_url }}'>Join now!</a></div>
+<div class='join-row'><a href='{{ site.data.general.tickets_url }}'>Buy tickets</a></div>
 
 <footer class='default-footer'>
   <nav class='container'>
     <div class='links' id='menu'>
-      <a href='{{ site.data.general.join_url }}'>Join now!</a>
+      <a href='{{ site.data.general.tickets_url }}'>Tickets</a>
       <a href='#top'>Top</a>
       <a href='#about'>About</a>
       <a href='#contact' class='only-mobile'>Contact</a>
-      <a href='#cast'>Cast details</a>
       <a href='#performance'>Performance details</a>
       <a href='https://www.facebook.com/CamberwellShowtime/'>Facebook</a>
       <a href='https://www.instagram.com/camberwellshowtime/'>Instagram</a>
       {% if site.data.general.members_area_url %}
       <a class='only-mobile' href='{{ site.data.general.members_area_url }}'>Member's area</a>
-      {% endif %}
-      {% if site.data.general.join_url %}
-      <a class='only-mobile' href='{{ site.data.general.join_url }}'>Join now!</a>
       {% endif %}
       <a href='#' class='only-mobile'>Close menu</a>
     </div>

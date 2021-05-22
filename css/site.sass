@@ -42,7 +42,7 @@ body
   font-family: 'sans-serif'
   text-shadow: 1px 1px 1px #999, 2px 2px 1px #999
   color: white
-  margin: 0 0 3rem
+  margin: 0 0 1rem
   font-size: calc(20px + 8vw)
   padding: 0 0 0 1rem
   h1
@@ -84,20 +84,21 @@ body
 
 main > *
   padding-left: 1rem
+  padding-right: 1rem
 
 table
   border-collapse: collapse
 td
   border-bottom: 1px solid rgba(255, 255, 255, 0.5)
 
-.row
+.row > div
   padding-left: 1rem
+  padding-right: 1rem
   display: flex
-  justify-content: flex-start
+  justify-content: center
   align-items: center
   max-width: 100vw
   margin: 0
-  margin-bottom: 3rem
   //@media(min-width: 850px)
   //  margin-bottom: 20rem
   padding-top: 1rem
@@ -139,6 +140,9 @@ $performance-color: #B1F8F2
   td
     padding-bottom: 0.25em
   h2
+    text-align: center
+    margin-left: auto
+    margin-right: auto
     @media(min-width: 750px)
       width: 8em
 
@@ -408,3 +412,72 @@ body.show-modal-submitted
     transform: rotate(0)
   100%
     transform: rotate(360deg)
+
+h1
+  overflow: hidden
+
+.default-container
+  text-align: center
+
+@media(min-width: 1000px)
+  .join-row
+    font-size: 600%
+
+.join-row
+  margin-left: 0
+  margin-right: 0
+
+.subtitle-5, .subtitle-7
+  transition: all 0.2s
+
+.game-of-phones
+  .subtitle-5
+    transform: scale(1.4)
+  .subtitle-7, .subtitle-6, .subtitle-8, .subtitle-4
+    color: rgba(2550, 255, 255, 0.3)
+    text-shadow: none
+  .performance-row
+    background: desaturate(#12cbbb, 10%)
+    color: #333 !important
+    border-top: 3px solid darken($performance-color, 40%)
+    border-bottom: 3px solid darken($performance-color, 40%)
+    color: white
+  .about-row
+    background: saturate(rgb(255, 255, 0), 40%)
+    border-top: 3px solid darken(#45103E, 40%)
+    border-bottom: 3px solid darken(#45103E, 40%)
+    color: #333 !important
+  .subtitle-1
+    color: rgba(255, 255, 255, 0.8)
+  footer
+    background: hsl(231,96%, 63%)
+    border-top-color: hsl(231,96%, 63%)
+    color: white
+    a
+      color: white
+
+.subtitle-7
+  color: #8b0000
+
+.the-house
+  .subtitle-7
+    transform: scale(1.8)
+  .subtitle-5, .subtitle-6, .subtitle-8, .subtitle-4
+    color: rgba(2550, 255, 255, 0.3)
+    text-shadow: none
+  .performance-row
+    background: #8b0000
+    border-top: 3px solid darken(#8b0000, 40%)
+    border-bottom: 3px solid darken(#8b0000, 40%)
+    color: white
+  .about-row
+    background: #45103E
+    border-top: 3px solid darken(#45103E, 40%)
+    border-bottom: 3px solid darken(#45103E, 40%)
+    color: white
+  footer
+    background: darken(#6bccf5, 60%)
+    border-top: 3px solid darken(#6bccf5, 80%)
+    color: white
+    a
+      color: white

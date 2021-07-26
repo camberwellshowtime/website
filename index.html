@@ -32,7 +32,8 @@ layout: default
       }())
     </script>
     <div class='subtitle-6' style='font-size: 40%; margin: 0.5em 0; position: relative'>
-      &nbsp;
+      <!--&nbsp;-->
+      &
       <!--AND-->
       <div id=gof-logo class=only-desktop></div>
       <div id=house-logo class=only-desktop></div>
@@ -163,3 +164,32 @@ layout: default
     {% endif %}
   </nav>
 </footer>
+
+<div class='dates-modal'>
+  <div class='dates-modal-content'>
+    <h2>Our new dates!</h2>
+    <p>
+      Camberwell Showtime 2021 has moved to November 5-13.<br>
+      Bookings will re-open shortly.<br>
+      Ticket holders: we’ll be in touch very soon about your options.<br>
+      Thanks for your understanding. Stay safe.
+    </p>
+    <div class=button-wrapper>
+      <button>Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+if(localStorage.hideModal !== 'true') {
+  document.body.className = document.body.className + ' show-dates-modal'
+  setTimeout(function() {
+    document.body.style.transition = 'margin 0.2s'
+    document.querySelector('.dates-modal-content').style.transition = 'transition: max-height 0.2s'
+  })
+}
+document.querySelector('.dates-modal button').onclick = function(e) {
+  localStorage.hideModal = 'true'
+  document.body.classList.remove('show-dates-modal')
+}
+</script>

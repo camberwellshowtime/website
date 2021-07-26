@@ -25,7 +25,7 @@ body
 
 .default-container
   @extend .container
-  padding: 4vw 0 0 0
+  padding: 2vw 0 0 0
   @media(max-width: 850px)
     padding: 6vw 0 0 0
   @media(max-width: 600px)
@@ -197,6 +197,8 @@ $about-color: #FFFC99
       display: inline-block
       text-align: left
       max-width: 30em
+  @media(min-width: 1000px)
+    margin-bottom: 4em
 
 .default-footer
   position: fixed
@@ -210,8 +212,6 @@ $about-color: #FFFC99
   background: darken(#6bccf5, 20%)
   @media(max-width: 1000px)
     position: static
-    @media(min-width: 750px)
-      margin-top: 50em
     .links
       position: fixed
       top: 0
@@ -239,6 +239,7 @@ $about-color: #FFFC99
 
 #menu:target
   left: 0
+  z-index: 1000
 
 header
   background: darken(#6bccf5, 20%)
@@ -488,3 +489,15 @@ h1
 
 .buy-tickets-button
   text-decoration: underline line-through
+
+.gof-subtitle
+  color: hsl(206,96%, 63%)
+
+.house-subtitle
+  color: lighten(#8b0000, 15%)
+
+.subtitle-4
+  display: flex
+@media(max-width: 1000px)
+  .subtitle-4
+    flex-direction: column

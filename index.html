@@ -167,32 +167,3 @@ layout: default
     {% endif %}
   </nav>
 </footer>
-
-<div class='dates-modal'>
-  <div class='dates-modal-content'>
-    <h2>Our new dates!</h2>
-    <p>
-      Due to current restrictions, Camberwell Showtime is postponed again.<br>
-      Our November season (originally our August season) will now be <b>20-28 May 2022</b>.<br>
-      Ticketholders will shortly get separate advice about their options.<br>
-      <a href='{{ site.data.general.tickets_url }}' style='font-weight: bold'>Book now for our new dates!</a>
-    </p>
-    <div class=button-wrapper>
-      <button>Close</button>
-    </div>
-  </div>
-</div>
-
-<script>
-if(localStorage.hideModal !== 'true-2') {
-  document.body.className = document.body.className + ' show-dates-modal'
-  setTimeout(function() {
-    document.body.style.transition = 'margin 0.2s'
-    document.querySelector('.dates-modal-content').style.transition = 'transition: max-height 0.2s'
-  })
-}
-document.querySelector('.dates-modal button').onclick = function(e) {
-  localStorage.hideModal = 'true-2'
-  document.body.classList.remove('show-dates-modal')
-}
-</script>
